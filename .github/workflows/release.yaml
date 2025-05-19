@@ -36,6 +36,7 @@ jobs:
 
       - name: Generate children charts
         run: |
+          git pull
           pip install pyyaml
           python3 utils/generate-children-charts.py
           if [[ `git status --porcelain` ]]; then
