@@ -127,7 +127,8 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-nodeSelector: {}
+nodeSelector:
+  node.kubernetes.io/floating-ip: ''
 tolerations: []
 affinity: {}
 startupProbe:
