@@ -102,7 +102,7 @@ networking:
 ingress:
   enabled: false
   tls: true
-  ingressClassName: ''
+  ingressClassName: nginx
   annotations: []
   hostname: chart-example.local
   userHostname: chart-example-user.local
