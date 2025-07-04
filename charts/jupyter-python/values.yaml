@@ -214,7 +214,7 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: 
+nodeSelector:
   node.kubernetes.io/floating-ip: ""
 
 
