@@ -12,4 +12,3 @@ ingress:
   useCertManager: false
   certManagerClusterIssuer: ""
   useTlsSecret: true
-  
