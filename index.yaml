@@ -159,4 +159,13 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-tensorflow-gpu-2.3.6/jupyter-tensorflow-gpu-2.3.6.tgz
     version: 2.3.6
-generated: "2025-05-28T08:27:21.713925489Z"
+  library-chart:
+  - apiVersion: v2
+    created: "2025-07-07T07:32:30.318742003Z"
+    digest: d10e3005007c68f76d32c090904b18a54967a5bd7dc73e8e39579b6f228b0531
+    name: library-chart
+    type: library
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/library-chart-1.7.0/library-chart-1.7.0.tgz
+    version: 1.7.0
+generated: "2025-07-07T07:32:30.318765538Z"
