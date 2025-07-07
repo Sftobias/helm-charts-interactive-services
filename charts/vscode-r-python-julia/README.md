@@ -1,10 +1,10 @@
-# jupyter-python
+# vscode-r-python-julia
 
-![Version: 2.3.8](https://img.shields.io/badge/Version-2.3.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.5](https://img.shields.io/badge/Version-2.3.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The JupyterLab IDE with Python and a collection of standard data science packages.
+The VSCode IDE with minimal installations of R, Python and Julia.
 
-**Homepage:** <https://jupyter.org/>
+**Homepage:** <https://code.visualstudio.com/>
 
 ## Source Code
 
@@ -15,7 +15,7 @@ The JupyterLab IDE with Python and a collection of standard data science package
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.0 |
+| https://inseefrlab.github.io/helm-charts-interactive-services | library-chart | 1.7.0 |
 
 ## Values
 
@@ -41,30 +41,27 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | git.branch | string | `""` |  |
 | git.cache | string | `""` |  |
 | git.email | string | `""` |  |
-| git.enabled | bool | `false` |  |
+| git.enabled | bool | `true` |  |
 | git.name | string | `""` |  |
-| git.repository | string | `""` |  |
 | git.secretName | string | `""` |  |
-| git.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | hive.secretName | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | list | `[]` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
-| ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu"` |  |
-| ingress.hosts[0] | string | `"deployments.cloud.eosc-siesta.eu"` |  |
-| ingress.ingressClassName | string | `"nginx"` |  |
-| ingress.secretName | string | `"deployments.cloud.eosc-siesta.eu-tls"` |  |
+| ingress.hostname | string | `"chart-example.local"` |  |
+| ingress.ingressClassName | string | `""` |  |
 | ingress.tls | bool | `true` |  |
 | ingress.useCertManager | bool | `false` |  |
-| ingress.useTlsSecret | bool | `true` |  |
+| ingress.useTlsSecret | bool | `false` |  |
 | ingress.userHostname | string | `"chart-example-user.local"` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
+| init.regionInitCheckSum | string | `""` |  |
 | init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
-| kubernetes.enabled | bool | `false` |  |
+| kubernetes.enabled | bool | `true` |  |
 | kubernetes.role | string | `"view"` |  |
 | message.en | string | `""` |  |
 | message.fr | string | `""` |  |
@@ -73,17 +70,16 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | mlflow.secretName | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `8888` |  |
-| networking.sparkui.port | int | `4040` |  |
+| networking.service.port | int | `8080` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | networking.user.enabled | bool | `false` |  |
 | networking.user.port | int | `5000` |  |
 | networking.user.ports | list | `[]` |  |
-| nodeSelector."node.kubernetes.io/floating-ip" | string | `""` |  |
+| nodeSelector | object | `{}` |  |
 | openshiftSCC.enabled | bool | `false` |  |
 | openshiftSCC.scc | string | `""` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `false` |  |
+| persistence.enabled | bool | `true` |  |
 | persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
@@ -118,9 +114,9 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
+| service.image.custom.version | string | `"inseefrlab/onyxia-vscode-r-python-julia:r4.5.0-py3.12.9"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
+| service.image.version | string | `"inseefrlab/onyxia-vscode-r-python-julia:r4.5.0-py3.12.9"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
@@ -130,6 +126,13 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `2` |  |
 | tolerations | list | `[]` |  |
+| userPreferences.aiAssistant.apiBase | string | `""` |  |
+| userPreferences.aiAssistant.apiKey | string | `""` |  |
+| userPreferences.aiAssistant.enabled | bool | `false` |  |
+| userPreferences.aiAssistant.model | string | `""` |  |
+| userPreferences.aiAssistant.provider | string | `""` |  |
+| userPreferences.aiAssistant.secretName | string | `""` |  |
+| userPreferences.aiAssistant.useLegacyCompletionsEndpoint | bool | `false` |  |
 | userPreferences.darkMode | bool | `false` |  |
 | userPreferences.language | string | `"en"` |  |
 | vault.directory | string | `""` |  |
