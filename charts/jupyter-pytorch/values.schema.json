@@ -698,54 +698,6 @@
         }
       }
     },
-    "ingress": {
-      "title": "Ingress Details",
-      "type": "object",
-      "form": false,
-      "x-onyxia": {
-        "overwriteSchemaWith": "ide/ingress.json"
-      },
-      "properties": {
-        "enabled": {
-          "description": "Enable Ingress",
-          "type": "boolean",
-          "default": true
-        },
-        "hostname": {
-          "type": "string",
-          "form": false,
-          "title": "Hostname"
-        },
-        "userHostname": {
-          "type": "string",
-          "form": true,
-          "title": "Hostname"
-        },
-        "ingressClassName": {
-          "type": "string",
-          "form": true,
-          "title": "ingressClassName"
-        },
-        "useCertManager": {
-          "type": "boolean",
-          "description": "Whether CertManager should be used to generate a certificate",
-          "default": false
-        },
-        "certManagerClusterIssuer": {
-          "type": "string",
-          "description": "certManager cluster issuer",
-          "title": "CertManager Cluster Issuer",
-          "default": ""
-        },
-        "useTlsSecret": {
-          "type": "boolean",
-          "description": "Whether you want to use the specified secretName in ingress tls"
-        },
-        "tlsSecretName": {
-          "type": "string"
-        }
-      }
-    },
     "route": {
       "type": "object",
       "form": true,
