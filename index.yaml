@@ -27,6 +27,28 @@ entries:
     version: 2.3.3
   jupyter-python:
   - apiVersion: v2
+    created: "2025-07-07T12:07:12.393497855Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.0
+    description: The JupyterLab IDE with Python and a collection of standard data
+      science packages.
+    digest: 3f0579f4cf4e83258bfe56b8df0de113d580cc0f6e1724bba10db3964a283c63
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-python
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-python-2.3.10/jupyter-python-2.3.10.tgz
+    version: 2.3.10
+  - apiVersion: v2
     created: "2025-07-07T10:52:58.903124508Z"
     dependencies:
     - name: library-chart
@@ -93,6 +115,28 @@ entries:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-python-2.3.6/jupyter-python-2.3.6.tgz
     version: 2.3.6
   jupyter-python-gpu:
+  - apiVersion: v2
+    created: "2025-07-07T12:07:12.490627615Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.0
+    description: The JupyterLab IDE with Python, and a collection of standard data
+      science packages, with GPU support.
+    digest: 8911f3665c724682dd965add8798a3058582a1c508b849636970be932cbc81c3
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-python-gpu
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-python-gpu-2.3.10/jupyter-python-gpu-2.3.10.tgz
+    version: 2.3.10
   - apiVersion: v2
     created: "2025-07-07T10:52:59.011212924Z"
     dependencies:
@@ -161,6 +205,27 @@ entries:
     version: 2.3.6
   jupyter-pytorch:
   - apiVersion: v2
+    created: "2025-07-07T12:07:12.624851493Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.0
+    description: The JupyterLab IDE with Python and the deep-learning framework PyTorch.
+    digest: 7b1b436c0c278f59b293ddc47dcb32850ad6bbba908f196d26d8b8dcbeaeaa7f
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-pytorch
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-pytorch-2.3.10/jupyter-pytorch-2.3.10.tgz
+    version: 2.3.10
+  - apiVersion: v2
     created: "2025-07-07T10:52:59.105847695Z"
     dependencies:
     - name: library-chart
@@ -224,6 +289,28 @@ entries:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-pytorch-2.3.6/jupyter-pytorch-2.3.6.tgz
     version: 2.3.6
   jupyter-pytorch-gpu:
+  - apiVersion: v2
+    created: "2025-07-07T12:07:12.763133232Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.0
+    description: The JupyterLab IDE with Python and the deep-learning framework PyTorch,
+      with GPU support.
+    digest: 4dc22e9db660abb1f23964075461689ac9dd3d973c8a4238e24a82f74f623a44
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-pytorch-gpu
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-pytorch-gpu-2.3.10/jupyter-pytorch-gpu-2.3.10.tgz
+    version: 2.3.10
   - apiVersion: v2
     created: "2025-07-07T10:52:59.250117113Z"
     dependencies:
@@ -292,6 +379,28 @@ entries:
     version: 2.3.6
   jupyter-r-python-julia:
   - apiVersion: v2
+    created: "2025-07-07T12:07:12.866491794Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.0
+    description: The JupyterLab IDE with Python, R, Julia, and a collection of standard
+      data science packages
+    digest: d83ddced394961a12bf87d150dec5e59aee8bf5295b5f28d006896fb40338696
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-r-python-julia
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-r-python-julia-2.3.10/jupyter-r-python-julia-2.3.10.tgz
+    version: 2.3.10
+  - apiVersion: v2
     created: "2025-07-07T10:52:59.358289977Z"
     dependencies:
     - name: library-chart
@@ -359,6 +468,27 @@ entries:
     version: 2.3.6
   jupyter-tensorflow:
   - apiVersion: v2
+    created: "2025-07-07T12:07:12.988502519Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.0
+    description: The JupyterLab IDE with Python and the deep-learning framework TensorFlow.
+    digest: 43924d43b07998a66b9e6e5ee1315b45e4638dc5936c310ae6c244c9f983dab7
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-tensorflow
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-tensorflow-2.3.10/jupyter-tensorflow-2.3.10.tgz
+    version: 2.3.10
+  - apiVersion: v2
     created: "2025-07-07T10:52:59.46606996Z"
     dependencies:
     - name: library-chart
@@ -422,6 +552,28 @@ entries:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-tensorflow-2.3.6/jupyter-tensorflow-2.3.6.tgz
     version: 2.3.6
   jupyter-tensorflow-gpu:
+  - apiVersion: v2
+    created: "2025-07-07T12:07:13.093882796Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.0
+    description: The JupyterLab IDE with Python and the deep-learning framework TensorFlow,
+      with GPU support.
+    digest: 01094c49bde5026e51f2579a79b9b51f2c3f77842ceca9830ecacb4698f63a5b
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-tensorflow-gpu
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-tensorflow-gpu-2.3.10/jupyter-tensorflow-gpu-2.3.10.tgz
+    version: 2.3.10
   - apiVersion: v2
     created: "2025-07-07T10:52:59.560684985Z"
     dependencies:
@@ -750,4 +902,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/vscode-tensorflow-gpu-2.3.5/vscode-tensorflow-gpu-2.3.5.tgz
     version: 2.3.5
-generated: "2025-07-07T10:53:00.866292843Z"
+generated: "2025-07-07T12:07:13.093968977Z"
