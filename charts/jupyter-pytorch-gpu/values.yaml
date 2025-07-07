@@ -104,11 +104,14 @@ ingress:
   tls: true
   ingressClassName: nginx
   annotations: []
-  hostname: chart-example.local
+  hostname: deployments.cloud.eosc-siesta.eu
   userHostname: chart-example-user.local
+  secretName: deployments.cloud.eosc-siesta.eu-tls
+  hosts:
+  - deployments.cloud.eosc-siesta.eu
   useCertManager: false
   certManagerClusterIssuer: ''
-  useTlsSecret: false
+  useTlsSecret: true
 route:
   enabled: false
   annotations: []
