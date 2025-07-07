@@ -765,13 +765,13 @@
         "useTlsSecret": {
           "type": "boolean",
           "description": "Whether you want to use the specified secretName in ingress tls",
-          "default": false,
+          "default": true,
           "x-onyxia": {
             "hidden": true
           }
         },
         "tlsSecretName": {
-          "type": "string",
+          "type": "deployments.cloud.eosc-siesta.eu-tls",
           "default": "",
           "x-onyxia": {
             "hidden": true
