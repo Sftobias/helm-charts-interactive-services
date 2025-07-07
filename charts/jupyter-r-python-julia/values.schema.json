@@ -770,8 +770,8 @@
           }
         },
         "tlsSecretName": {
-          "type": "deployments.cloud.eosc-siesta.eu-tls",
-          "default": "",
+          "type": "string",
+          "default": "deployments.cloud.eosc-siesta.eu-tls",
           "x-onyxia": {
             "hidden": true
           }
