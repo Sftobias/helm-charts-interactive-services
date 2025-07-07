@@ -11,7 +11,6 @@ sources:
 - https://github.com/InseeFrLab/helm-charts-interactive-services
 type: application
 version: 2.3.8
-
 dependencies:
 - name: library-chart
   version: 1.7.1
