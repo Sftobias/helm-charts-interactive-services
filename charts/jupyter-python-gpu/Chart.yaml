@@ -15,4 +15,4 @@ version: 2.3.8
 dependencies:
 - name: library-chart
   version: 1.7.0
-  repository: https://inseefrlab.github.io/helm-charts-interactive-services
+  repository: https://sftobias.github.io/helm-charts-interactive-services
