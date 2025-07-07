@@ -1,0 +1,14 @@
+ingress:
+  enabled: false
+  tls: true
+  ingressClassName: "nginx"
+  annotations: []
+    # kubernetes.io/tls-acme: "true"
+  hostname: deployments.cloud.eosc-siesta.eu
+  userHostname: chart-example-user.local
+  secretName: deployments.cloud.eosc-siesta.eu-tls
+  hosts:
+    - deployments.cloud.eosc-siesta.eu
+  useCertManager: false
+  certManagerClusterIssuer: ""
+  useTlsSecret: true
