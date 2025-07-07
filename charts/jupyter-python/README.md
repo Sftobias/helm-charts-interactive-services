@@ -15,7 +15,7 @@ The JupyterLab IDE with Python and a collection of standard data science package
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://inseefrlab.github.io/helm-charts-interactive-services | library-chart | 1.7.0 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.0 |
 
 ## Values
 
