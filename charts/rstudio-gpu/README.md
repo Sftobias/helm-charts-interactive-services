@@ -15,7 +15,7 @@ The RStudio IDE with a collection of standard data science packages, with GPU su
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.1 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.2 |
 
 ## Values
 
