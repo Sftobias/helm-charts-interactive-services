@@ -15,7 +15,7 @@ The VSCode IDE with Python and the deep-learning framework TensorFlow, with GPU 
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.2 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.3 |
 
 ## Values
 
