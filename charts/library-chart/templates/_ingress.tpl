@@ -63,7 +63,7 @@ spec:
     {{- end }}
 {{- end }}
   rules:
-    - host: {{ .Values.ingress.tlsSecretName | quote }}
+    - host: {{ .Values.ingress.hostname | quote }}
       http:
         paths:
           - path: /
