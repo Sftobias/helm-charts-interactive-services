@@ -1250,6 +1250,14 @@ entries:
     version: 2.3.6
   library-chart:
   - apiVersion: v2
+    created: "2025-07-08T07:49:27.824416109Z"
+    digest: eda91b37b24e656292512612a3084677c912dc9c05d7a173f18376152a13a9e2
+    name: library-chart
+    type: library
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/library-chart-1.7.2/library-chart-1.7.2.tgz
+    version: 1.7.2
+  - apiVersion: v2
     created: "2025-07-08T07:36:56.858447838Z"
     digest: d4973b3e8689ce1aea1502f57f28c69b9d97795a39bdb07599855b804d164169
     name: library-chart
@@ -1518,4 +1526,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/vscode-tensorflow-gpu-2.3.5/vscode-tensorflow-gpu-2.3.5.tgz
     version: 2.3.5
-generated: "2025-07-08T07:40:23.347390888Z"
+generated: "2025-07-08T07:49:27.824562752Z"
