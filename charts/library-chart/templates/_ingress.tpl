@@ -59,7 +59,7 @@ spec:
     - hosts:
         - {{ .Values.ingress.hostname | quote }}
     {{- if or .Values.ingress.useCertManager .Values.ingress.useTlsSecret}}
-      secretName: {{ .Values.ingress.tlsSecretName | quote }}
+      secretName: {{ .Values.ingress.secretName | quote }}
     {{- end }}
 {{- end }}
   rules:
