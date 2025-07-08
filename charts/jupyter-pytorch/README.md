@@ -15,7 +15,7 @@ The JupyterLab IDE with Python and the deep-learning framework PyTorch.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.1 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.0 |
 
 ## Values
 
