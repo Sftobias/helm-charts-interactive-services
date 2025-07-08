@@ -15,7 +15,7 @@ The Visual Studio Code IDE with PySpark, an interface to use Apache Spark from P
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.2 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.3 |
 
 ## Values
 
