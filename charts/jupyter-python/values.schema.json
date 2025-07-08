@@ -767,14 +767,14 @@
           "description": "Whether you want to use the specified secretName in ingress tls",
           "default": true,
           "x-onyxia": {
-            "hidden": true
+            "hidden": false
           }
         },
         "tlsSecretName":{
           "type": "string",
           "default": "deployments.cloud.eosc-siesta.eu-tls",
           "x-onyxia": {
-            "hidden": true
+            "hidden": false
           }
         }
       }
