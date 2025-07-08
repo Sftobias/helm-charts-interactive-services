@@ -59,11 +59,11 @@ spec:
     - hosts:
         - {{ .Values.ingress.hostname | quote }}
     {{- if or .Values.ingress.useCertManager .Values.ingress.useTlsSecret}}
-      secretName: tls-cert-{{ include "library-chart.fullname" . }}
+      secretName: {{ .Values.ingress.userHostname | quote }}
     {{- end }}
 {{- end }}
   rules:
-    - host: {{ .Values.ingress.hostname | quote }}
+    - host: {{ .Values.ingress.tlsSecretName | quote }}
       http:
         paths:
           - path: /
@@ -111,7 +111,7 @@ spec:
         {{- end }}
       {{- end }}
       {{- if or .Values.ingress.useCertManager .Values.ingress.useTlsSecret }}
-      secretName: tls-cert-{{ include "library-chart.fullname" . }}
+      secretName: {{ .Values.ingress.tlsSecretName | quote }}
       {{- end }}
 {{- end }}
   rules:
