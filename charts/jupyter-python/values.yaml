@@ -202,7 +202,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: "cinder-sci"
+  # storageClass: "cinder-sci"
   accessMode: ReadWriteOnce
   size: 10Gi
   # existingClaim: ""
