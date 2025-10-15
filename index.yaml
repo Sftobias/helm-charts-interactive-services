@@ -1,5 +1,22 @@
 apiVersion: v1
 entries:
+  anjana:
+  - apiVersion: v2
+    created: "2025-10-15T11:03:11.662248668Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Anjana test
+    digest: 416432e5c2790be99853cf23f048fadcac29067b894119867218689ea234007f
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Anjana
+    name: anjana
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/anjana-2.3.20/anjana-2.3.20.tgz
+    version: 2.3.20
   jupyter-pyspark:
   - apiVersion: v2
     created: "2025-07-07T10:18:04.798587699Z"
@@ -2454,4 +2471,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/vscode-tensorflow-gpu-2.3.5/vscode-tensorflow-gpu-2.3.5.tgz
     version: 2.3.5
-generated: "2025-09-10T09:57:09.732930505Z"
+generated: "2025-10-15T11:03:11.662387397Z"
