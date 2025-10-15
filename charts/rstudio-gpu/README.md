@@ -1,8 +1,15 @@
-# anjana
+# rstudio-gpu
 
-![Version: 2.3.20](https://img.shields.io/badge/Version-2.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.1](https://img.shields.io/badge/Version-2.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Anjana test
+The RStudio IDE with a collection of standard data science packages, with GPU support.
+
+**Homepage:** <https://www.rstudio.com/>
+
+## Source Code
+
+* <https://github.com/InseeFrLab/images-datascience>
+* <https://github.com/InseeFrLab/helm-charts-interactive-services>
 
 ## Requirements
 
@@ -19,14 +26,6 @@ Anjana test
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| certificates | object | `{}` |  |
-| chromadb.secretName | string | `""` |  |
-| coresite.secretName | string | `""` |  |
-| discovery.chromadb | bool | `true` |  |
-| discovery.hive | bool | `true` |  |
-| discovery.metaflow | bool | `true` |  |
-| discovery.milvus | bool | `true` |  |
-| discovery.mlflow | bool | `true` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | extraEnvVars | list | `[]` |  |
@@ -40,43 +39,36 @@ Anjana test
 | git.secretName | string | `""` |  |
 | git.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
-| hive.secretName | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | list | `[]` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
-| ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu"` |  |
-| ingress.hosts[0] | string | `"deployments.cloud.eosc-siesta.eu"` |  |
-| ingress.ingressClassName | string | `"nginx"` |  |
-| ingress.secretName | string | `"deployments.cloud.eosc-siesta.eu-tls"` |  |
+| ingress.hostname | string | `"chart-example.local"` |  |
 | ingress.tls | bool | `true` |  |
 | ingress.useCertManager | bool | `false` |  |
-| ingress.useTlsSecret | bool | `true` |  |
+| ingress.useTlsSecret | bool | `false` |  |
 | ingress.userHostname | string | `"chart-example-user.local"` |  |
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
 | init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
-| kubernetes.enabled | bool | `false` |  |
+| kubernetes.enabled | bool | `true` |  |
 | kubernetes.role | string | `"view"` |  |
 | message.en | string | `""` |  |
 | message.fr | string | `""` |  |
-| metaflow.secretName | string | `""` |  |
-| milvus.secretName | string | `""` |  |
-| mlflow.secretName | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `8888` |  |
+| networking.service.port | int | `8787` |  |
 | networking.sparkui.port | int | `4040` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | networking.user.enabled | bool | `false` |  |
 | networking.user.port | int | `5000` |  |
 | networking.user.ports | list | `[]` |  |
-| nodeSelector."node.kubernetes.io/floating-ip" | string | `""` |  |
+| nodeSelector | object | `{}` |  |
 | openshiftSCC.enabled | bool | `false` |  |
 | openshiftSCC.scc | string | `""` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `false` |  |
+| persistence.enabled | bool | `true` |  |
 | persistence.size | string | `"10Gi"` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext.fsGroup | int | `100` |  |
@@ -85,9 +77,9 @@ Anjana test
 | proxy.httpsProxy | string | `""` |  |
 | proxy.noProxy | string | `""` |  |
 | replicaCount | int | `1` |  |
-| repository.condaRepository | string | `""` |  |
 | repository.configMapName | string | `""` |  |
-| repository.pipRepository | string | `""` |  |
+| repository.packageManagerUrl | string | `""` |  |
+| repository.rRepository | string | `""` |  |
 | resources | object | `{}` |  |
 | route.annotations | list | `[]` |  |
 | route.enabled | bool | `false` |  |
@@ -111,9 +103,9 @@ Anjana test
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
+| service.image.custom.version | string | `"inseefrlab/onyxia-rstudio:r4.5.0-gpu"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
+| service.image.version | string | `"inseefrlab/onyxia-rstudio:r4.5.0-gpu"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |

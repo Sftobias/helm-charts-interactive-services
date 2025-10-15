@@ -1,8 +1,15 @@
-# anjana
+# jupyter-tensorflow-gpu
 
 ![Version: 2.3.20](https://img.shields.io/badge/Version-2.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Anjana test
+The JupyterLab IDE with Python and the deep-learning framework TensorFlow, with GPU support.
+
+**Homepage:** <https://jupyter.org/>
+
+## Source Code
+
+* <https://github.com/InseeFrLab/images-datascience>
+* <https://github.com/InseeFrLab/helm-charts-interactive-services>
 
 ## Requirements
 
@@ -111,9 +118,9 @@ Anjana test
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
+| service.image.custom.version | string | `"inseefrlab/onyxia-jupyter-tensorflow:py3.13.5-gpu"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
+| service.image.version | string | `"inseefrlab/onyxia-jupyter-tensorflow:py3.13.5-gpu"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
