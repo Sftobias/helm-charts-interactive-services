@@ -2288,6 +2288,29 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/rstudio-sparkr-2.3.1/rstudio-sparkr-2.3.1.tgz
     version: 2.3.1
+  ubuntu22:
+  - apiVersion: v2
+    created: "2025-10-17T12:13:35.414397925Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: The JupyterLab IDE with Python and a collection of standard data
+      science packages.
+    digest: 10866032bcf395c59468bdc4da6bdcf100acdcb845dab924ef7d681d8f4ac51c
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: ubuntu22
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.20/ubuntu22-2.3.20.tgz
+    version: 2.3.20
   vscode-pyspark:
   - apiVersion: v2
     created: "2025-07-07T10:18:06.900275711Z"
@@ -2471,4 +2494,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/vscode-tensorflow-gpu-2.3.5/vscode-tensorflow-gpu-2.3.5.tgz
     version: 2.3.5
-generated: "2025-10-15T11:03:11.662387397Z"
+generated: "2025-10-17T12:13:35.414624427Z"
