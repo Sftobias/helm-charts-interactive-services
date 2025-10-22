@@ -8,7 +8,6 @@ metadata:
 spec:
 
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   serviceName: {{ include "library-chart.fullname" . }}
   selector:
     matchLabels:
