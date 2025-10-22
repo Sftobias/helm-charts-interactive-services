@@ -8,7 +8,7 @@ Anjana test
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.5 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.6 |
 
 ## Values
 
