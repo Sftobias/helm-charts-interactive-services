@@ -1,8 +1,8 @@
-# ubuntu22
+# jupyter-python-gpu
 
-![Version: 2.3.22](https://img.shields.io/badge/Version-2.3.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.20](https://img.shields.io/badge/Version-2.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The JupyterLab IDE with Python and a collection of standard data science packages.
+The JupyterLab IDE with Python, and a collection of standard data science packages, with GPU support.
 
 **Homepage:** <https://jupyter.org/>
 
@@ -27,11 +27,27 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | certificates | object | `{}` |  |
+| chromadb.secretName | string | `""` |  |
+| coresite.secretName | string | `""` |  |
+| discovery.chromadb | bool | `true` |  |
+| discovery.hive | bool | `true` |  |
+| discovery.metaflow | bool | `true` |  |
+| discovery.milvus | bool | `true` |  |
+| discovery.mlflow | bool | `true` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | extraEnvVars | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
+| git.branch | string | `""` |  |
+| git.cache | string | `""` |  |
+| git.email | string | `""` |  |
+| git.enabled | bool | `false` |  |
+| git.name | string | `""` |  |
+| git.repository | string | `""` |  |
+| git.secretName | string | `""` |  |
+| git.token | string | `""` |  |
 | global.suspend | bool | `false` |  |
+| hive.secretName | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | list | `[]` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
@@ -44,13 +60,20 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | ingress.useCertManager | bool | `false` |  |
 | ingress.useTlsSecret | bool | `true` |  |
 | ingress.userHostname | string | `"chart-example-user.local"` |  |
+| init.personalInit | string | `""` |  |
+| init.personalInitArgs | string | `""` |  |
+| init.regionInit | string | `""` |  |
+| init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
 | kubernetes.enabled | bool | `false` |  |
 | kubernetes.role | string | `"view"` |  |
 | message.en | string | `""` |  |
 | message.fr | string | `""` |  |
+| metaflow.secretName | string | `""` |  |
+| milvus.secretName | string | `""` |  |
+| mlflow.secretName | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `3000` |  |
+| networking.service.port | int | `8888` |  |
 | networking.sparkui.port | int | `4040` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | networking.user.enabled | bool | `false` |  |
@@ -69,6 +92,9 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | proxy.httpsProxy | string | `""` |  |
 | proxy.noProxy | string | `""` |  |
 | replicaCount | int | `1` |  |
+| repository.condaRepository | string | `""` |  |
+| repository.configMapName | string | `""` |  |
+| repository.pipRepository | string | `""` |  |
 | resources | object | `{}` |  |
 | route.annotations | list | `[]` |  |
 | route.enabled | bool | `false` |  |
@@ -76,6 +102,15 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | route.tls.termination | string | `"edge"` |  |
 | route.userHostname | string | `"chart-example-user.local"` |  |
 | route.wildcardPolicy | string | `"None"` |  |
+| s3.accessKeyId | string | `""` |  |
+| s3.defaultRegion | string | `""` |  |
+| s3.enabled | bool | `false` |  |
+| s3.endpoint | string | `""` |  |
+| s3.pathStyleAccess | bool | `false` |  |
+| s3.secretAccessKey | string | `""` |  |
+| s3.secretName | string | `""` |  |
+| s3.sessionToken | string | `""` |  |
+| s3.workingDirectoryPath | string | `""` |  |
 | security.allowlist.enabled | bool | `false` |  |
 | security.allowlist.ip | string | `"0.0.0.0/0"` |  |
 | security.networkPolicy.enabled | bool | `false` |  |
@@ -83,9 +118,9 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
+| service.image.custom.version | string | `"inseefrlab/onyxia-jupyter-python:py3.13.5-gpu"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"sftobias/wetty-root:latest"` |  |
+| service.image.version | string | `"inseefrlab/onyxia-jupyter-python:py3.13.5-gpu"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
@@ -97,6 +132,13 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | tolerations | list | `[]` |  |
 | userPreferences.darkMode | bool | `false` |  |
 | userPreferences.language | string | `"en"` |  |
+| vault.directory | string | `""` |  |
+| vault.enabled | bool | `false` |  |
+| vault.mount | string | `""` |  |
+| vault.secret | string | `""` |  |
+| vault.secretName | string | `""` |  |
+| vault.token | string | `""` |  |
+| vault.url | string | `""` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
