@@ -1,8 +1,8 @@
-# ubuntu22
+# jupyter-python-gpu
 
-![Version: 2.3.21](https://img.shields.io/badge/Version-2.3.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.20](https://img.shields.io/badge/Version-2.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The JupyterLab IDE with Python and a collection of standard data science packages.
+The JupyterLab IDE with Python, and a collection of standard data science packages, with GPU support.
 
 **Homepage:** <https://jupyter.org/>
 
@@ -73,7 +73,7 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | mlflow.secretName | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `3000` |  |
+| networking.service.port | int | `8888` |  |
 | networking.sparkui.port | int | `4040` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | networking.user.enabled | bool | `false` |  |
@@ -118,9 +118,9 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
+| service.image.custom.version | string | `"inseefrlab/onyxia-jupyter-python:py3.13.5-gpu"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
+| service.image.version | string | `"inseefrlab/onyxia-jupyter-python:py3.13.5-gpu"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
