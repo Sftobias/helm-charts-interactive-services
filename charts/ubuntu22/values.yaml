@@ -140,7 +140,7 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    port: 8888
+    port: 3000
   sparkui:
     port: 4040
   # Custom user-specified extra ports exposition.
