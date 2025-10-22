@@ -1,6 +1,6 @@
 # anjana
 
-![Version: 2.3.20](https://img.shields.io/badge/Version-2.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.21](https://img.shields.io/badge/Version-2.3.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Anjana test
 
@@ -8,7 +8,7 @@ Anjana test
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.6 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.4 |
 
 ## Values
 
