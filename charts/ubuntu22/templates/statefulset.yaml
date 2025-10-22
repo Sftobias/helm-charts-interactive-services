@@ -20,39 +20,6 @@ spec:
   template:
     metadata:
       annotations:
-        {{- if (.Values.git).enabled }}
-        checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if (.Values.s3).enabled }}
-        checksum/s3: {{ include (print $.Template.BasePath "/secret-s3.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if (.Values.vault).enabled }}
-        checksum/vault: {{ include (print $.Template.BasePath "/secret-vault.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if not (empty (trim (include "library-chart.secretHive" .))) }}
-        checksum/hive: {{ include (print $.Template.BasePath "/secret-hive.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if not (empty (trim (include "library-chart.secretMetaflow" .))) }}
-        checksum/metaflow: {{ include (print $.Template.BasePath "/secret-metaflow.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if not (empty (trim (include "library-chart.secretMLFlow" .))) }}
-        checksum/mlflow: {{ include (print $.Template.BasePath "/secret-mlflow.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if not (empty (trim (include "library-chart.secretChromaDB" .))) }}
-        checksum/chromadb: {{ include (print $.Template.BasePath "/secret-chromadb.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if not (empty (trim (include "library-chart.secretMilvus" .))) }}
-        checksum/milvus: {{ include (print $.Template.BasePath "/secret-milvus.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if (include "library-chart.repository.enabled"  .) }}
-        checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
-        {{- end }}
-        {{- if (.Values.certificates).cacerts }}
-        checksum/cacerts: {{ .Values.certificates.cacerts | sha256sum }}
-        {{- end }}
-        {{- with .Values.podAnnotations }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
       labels:
         {{- include "library-chart.selectorLabels" . | nindent 8 }}
     spec:
@@ -198,38 +165,6 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "library-chart.secretNameToken" . }}
-            {{- if (.Values.git).enabled }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameGit" . }}
-            {{- end }}
-            {{- if (.Values.s3).enabled }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameS3" . }}
-            {{- end }}
-            {{- if (.Values.vault).enabled }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameVault" . }}
-            {{- end }}
-            {{- if (.Values.proxy).enabled }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameProxy" . }}
-            {{- end }}
-            {{- if (include "library-chart.repository.enabled"  .) }}
-            - configMapRef:
-                name: {{ include "library-chart.configMapNameRepository" . }}
-            {{- end }}
-            {{- if not (empty (trim (include "library-chart.secretMLFlow" .))) }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameMLFlow" . }}
-            {{- end }}
-            {{- if not (empty (trim (include "library-chart.secretChromaDB" .))) }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameChromaDB" . }}
-            {{- end }}
-            {{- if not (empty (trim (include "library-chart.secretMilvus" .))) }}
-            - secretRef:
-                name: {{ include "library-chart.secretNameMilvus" . }}
-            {{- end }}
             {{- if .Values.extraEnvVars }}
             - secretRef:
                 name: {{ include "library-chart.secretNameExtraEnv" . }}
@@ -242,21 +177,6 @@ spec:
               name: home
             - mountPath: /dev/shm
               name: dshm
-            {{- if (.Values.discovery).hive }}
-            - name: config-files
-              mountPath: /usr/local/lib/hive/conf/hive-site.xml
-              subPath: hive/hive-site.xml
-            {{- end }}
-            {{- if (.Values.discovery).metaflow }}
-            - name: config-files
-              mountPath: /home/{{ .Values.environment.user }}/.metaflowconfig
-              subPath: metaflow
-            {{- end }}
-            {{- if (.Values.certificates).pathToCaBundle }}
-            - name: config-files
-              mountPath: {{ .Values.certificates.pathToCaBundle }}
-              subPath: cacerts
-            {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

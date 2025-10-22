@@ -133,12 +133,6 @@ persistence:
   size: 10Gi
   # existingClaim: ""
 
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector:
   node.kubernetes.io/floating-ip: ""
@@ -147,13 +141,6 @@ nodeSelector:
 tolerations: []
 
 affinity: {}
-
-startupProbe:
-  failureThreshold: 60
-  initialDelaySeconds: 10
-  periodSeconds: 10
-  successThreshold: 1
-  timeoutSeconds: 2
 
 userPreferences:
   darkMode: false
