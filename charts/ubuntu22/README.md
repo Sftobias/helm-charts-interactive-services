@@ -1,6 +1,6 @@
 # ubuntu22
 
-![Version: 2.3.28](https://img.shields.io/badge/Version-2.3.28-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.29](https://img.shields.io/badge/Version-2.3.29-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python and a collection of standard data science packages.
 
@@ -22,6 +22,10 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| autoscaling.enabled | bool | `false` |  |
+| autoscaling.maxReplicas | int | `100` |  |
+| autoscaling.minReplicas | int | `1` |  |
+| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | certificates | object | `{}` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
