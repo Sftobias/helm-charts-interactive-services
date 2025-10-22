@@ -90,18 +90,6 @@ spec:
               value: {{ .Values.environment.group }}
             - name: ROOT_PROJECT_DIRECTORY
               value: /home/{{ .Values.environment.user }}/work
-            {{- if .Values.init.regionInit }}
-            - name: REGION_INIT_SCRIPT
-              value: {{ .Values.init.regionInit }}
-            {{- end }}
-            {{- if .Values.init.personalInit }}
-            - name: PERSONAL_INIT_SCRIPT
-              value: {{ .Values.init.personalInit }}
-            {{- end }}
-            {{- if .Values.init.personalInitArgs }}
-            - name: PERSONAL_INIT_ARGS
-              value: {{ .Values.init.personalInitArgs }}
-            {{- end }}
             {{- if .Values.environment.root }}
             - name: GRANT_SUDO
               value: "yes"
