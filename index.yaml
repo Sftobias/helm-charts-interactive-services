@@ -2290,6 +2290,28 @@ entries:
     version: 2.3.1
   ubuntu22:
   - apiVersion: v2
+    created: "2025-10-22T10:42:52.312166042Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: The JupyterLab IDE with Python and a collection of standard data
+      science packages.
+    digest: c6a00c3f2b37e99a8574b11df17c635575ae5cf7b938a9a3cb85a01c3e254a5c
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: ubuntu22
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.25/ubuntu22-2.3.25.tgz
+    version: 2.3.25
+  - apiVersion: v2
     created: "2025-10-22T10:29:25.204578812Z"
     dependencies:
     - name: library-chart
@@ -2582,4 +2604,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/vscode-tensorflow-gpu-2.3.5/vscode-tensorflow-gpu-2.3.5.tgz
     version: 2.3.5
-generated: "2025-10-22T10:29:25.204779527Z"
+generated: "2025-10-22T10:42:52.312408664Z"
