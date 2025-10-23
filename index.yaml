@@ -59,6 +59,23 @@ entries:
     version: 1.7.4
   ubuntu22:
   - apiVersion: v2
+    created: "2025-10-23T14:12:49.599115262Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Ubtuntu 22 exposed via Wetty terminal emulator
+    digest: a1179c148fc854085f04f4ed5bde1133e060aca8f274a26a33236608ffad8650
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Wetty
+    - Ubuntu
+    name: ubuntu22
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.45/ubuntu22-2.3.45.tgz
+    version: 2.3.45
+  - apiVersion: v2
     created: "2025-10-23T14:05:59.530960653Z"
     dependencies:
     - name: library-chart
@@ -285,4 +302,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.33/ubuntu22-2.3.33.tgz
     version: 2.3.33
-generated: "2025-10-23T14:05:59.5310229Z"
+generated: "2025-10-23T14:12:49.599188209Z"
