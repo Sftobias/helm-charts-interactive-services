@@ -1,15 +1,8 @@
 # ubuntu22
 
-![Version: 2.3.41](https://img.shields.io/badge/Version-2.3.41-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.42](https://img.shields.io/badge/Version-2.3.42-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The JupyterLab IDE with Python and a collection of standard data science packages.
-
-**Homepage:** <https://jupyter.org/>
-
-## Source Code
-
-* <https://github.com/InseeFrLab/images-datascience>
-* <https://github.com/InseeFrLab/helm-charts-interactive-services>
+Ubtuntu 22 exposed via Wetty terminal emulator
 
 ## Requirements
 
@@ -35,7 +28,7 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | imagePullSecrets | list | `[]` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
-| ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu/wetty"` |  |
+| ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu"` |  |
 | ingress.hosts[0] | string | `"deployments.cloud.eosc-siesta.eu"` |  |
 | ingress.ingressClassName | string | `"nginx"` |  |
 | ingress.secretName | string | `"deployments.cloud.eosc-siesta.eu-tls"` |  |
