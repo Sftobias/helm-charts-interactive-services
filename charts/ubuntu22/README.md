@@ -1,6 +1,6 @@
 # ubuntu22
 
-![Version: 2.3.37](https://img.shields.io/badge/Version-2.3.37-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.39](https://img.shields.io/badge/Version-2.3.39-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python and a collection of standard data science packages.
 
@@ -33,7 +33,7 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | fullnameOverride | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets | list | `[]` |  |
-| ingress.annotations."nginx.ingress.kubernetes.io/permanent-redirect" | string | `"https://deployments.cloud.eosc-siesta.eu/wetty"` |  |
+| ingress.annotations."nginx.ingress.kubernetes.io/app-root" | string | `"/wetty"` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu"` |  |
