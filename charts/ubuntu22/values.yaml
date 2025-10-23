@@ -83,7 +83,7 @@ ingress:
   tls: true
   ingressClassName: "nginx"
   annotations: 
-    nginx.ingress.kubernetes.io/permanent-redirect: https://$host/wetty
+    nginx.ingress.kubernetes.io/permanent-redirect: "https://deployments.cloud.eosc-siesta.eu/wetty"
     # kubernetes.io/tls-acme: "true"
   hostname: deployments.cloud.eosc-siesta.eu
   userHostname: chart-example-user.local
