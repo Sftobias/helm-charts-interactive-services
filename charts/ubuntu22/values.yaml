@@ -4,7 +4,7 @@ global:
 
 service:
   image:
-    version: "sftobias/wetty-root:latest"
+    version: "sftobias/wetty-root:base"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
