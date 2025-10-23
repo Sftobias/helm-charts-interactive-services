@@ -59,6 +59,28 @@ entries:
     version: 1.7.4
   ubuntu22:
   - apiVersion: v2
+    created: "2025-10-23T09:56:35.367116937Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: The JupyterLab IDE with Python and a collection of standard data
+      science packages.
+    digest: d13ddafead137973be68c6e70f5d948537a7711d3e664ef89c596e5ac2845de2
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: ubuntu22
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.40/ubuntu22-2.3.40.tgz
+    version: 2.3.40
+  - apiVersion: v2
     created: "2025-10-23T09:47:01.647816405Z"
     dependencies:
     - name: library-chart
@@ -190,4 +212,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.33/ubuntu22-2.3.33.tgz
     version: 2.3.33
-generated: "2025-10-23T09:47:01.64785136Z"
+generated: "2025-10-23T09:56:35.367164847Z"
