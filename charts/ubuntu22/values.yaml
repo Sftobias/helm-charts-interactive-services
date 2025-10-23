@@ -82,10 +82,7 @@ ingress:
   enabled: false
   tls: true
   ingressClassName: "nginx"
-  annotations: 
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^/$ /wetty redirect;    
-  hostname: deployments.cloud.eosc-siesta.eu
+  hostname: deployments.cloud.eosc-siesta.eu/wetty
   userHostname: chart-example-user.local
   secretName: deployments.cloud.eosc-siesta.eu-tls
   hosts:
