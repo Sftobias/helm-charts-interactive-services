@@ -35,28 +35,52 @@
         }
       }
     },
-    "extraEnvVars": {
-      "title": "Environment variables available within your service",
-      "type": "array",
-      "default": [],
+    "rootPassword": {
+      "title": "Root Password",
+      "description": "Set the root password for the service.",
+      "type": "string",
+      "form": true,
+      "format": "password",
+      "default": "",
       "x-onyxia": {
-        "hidden": true,
-        "overwriteSchemaWith": "ide/extraenv.json"
-      },
+        "env": "ROOT_PASSWORD",
+        "overwriteDefaultWith": "{{randomPassword}}"
+      }
+    },
+    "extraEnvVars": {
+      "title": "Root Password",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "default": [
+        {
+          "name": "ROOT_PASSWORD",
+          "value": ""
+        }
+      ],
       "items": {
-        "title": "",
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "default": "VAR_NAME",
-            "pattern": "^[a-zA-Z0-9_]+$"
+            "const": "ROOT_PASSWORD",
+            "title": "Variable name",
+            "readOnly": true
           },
           "value": {
             "type": "string",
-            "default": ""
+            "title": "Password",
+            "format": "password",
+            "default": "",
+            "x-onyxia": {
+              "overwriteDefaultWith": "{{randomPassword}}"
+            }
           }
         }
+      },
+      "x-onyxia": {
+        "overwriteSchemaWith": "ide/extraenv.json",
+        "hidden": false
       }
     },
     "networking": {
