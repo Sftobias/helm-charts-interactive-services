@@ -82,7 +82,7 @@ ingress:
   enabled: false
   tls: true
   ingressClassName: "nginx"
-  hostname: deployments.cloud.eosc-siesta.eu/wetty
+  hostname: deployments.cloud.eosc-siesta.eu
   userHostname: chart-example-user.local
   secretName: deployments.cloud.eosc-siesta.eu-tls
   hosts:
