@@ -1,6 +1,6 @@
 # ubuntu22
 
-![Version: 2.3.33](https://img.shields.io/badge/Version-2.3.33-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.34](https://img.shields.io/badge/Version-2.3.34-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 The JupyterLab IDE with Python and a collection of standard data science packages.
 
