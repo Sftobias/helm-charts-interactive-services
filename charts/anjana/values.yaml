@@ -4,11 +4,11 @@ global:
 
 service:
   image:
-    version: "inseefrlab/onyxia-jupyter-python:py3.12.9"
+    version: "martaob/anjana:browser"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
-      version: "inseefrlab/onyxia-jupyter-python:py3.12.9"
+      version: "harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"
 
 security:
   password: "changeme"
@@ -18,12 +18,6 @@ security:
   allowlist:
     enabled: false
     ip: "0.0.0.0/0"
-
-init:
-  standardInitPath: "/opt/onyxia-init.sh"
-  regionInit: ""
-  personalInit: ""
-  personalInitArgs: ""
 
 # Array with (templated) extra environment variables to be made accessible within the service
 # e.g:
@@ -35,74 +29,6 @@ extraEnvVars: []
 environment:
   user: onyxia
   group: users
-
-s3:
-  # Specifies whether S3 credentials should be made available
-  enabled: false
-  # The name of the secret storing the S3 credentials
-  secretName: ""  # Generated based on the service's name if empty or not set
-  accessKeyId: ""
-  endpoint: ""
-  defaultRegion: ""
-  secretAccessKey: ""
-  sessionToken: ""
-  pathStyleAccess: false
-  workingDirectoryPath: ""
-
-vault:
-  # Specifies whether Vault credentials should be made available
-  enabled: false
-  # The name of the secret storing the Vault credentials
-  secretName: ""  # Generated based on the service's name if empty or not set
-  token: ""
-  url: ""
-  mount: ""
-  secret: ""
-  directory: ""
-
-git:
-  # Specifies whether git credentials should be made available
-  enabled: false
-  # The name of the secret storing the git credentials
-  secretName: ""  # Generated based on the service's name if empty or not set
-  name: ""
-  email: ""
-  cache: ""
-  token: ""
-  repository: ""
-  branch: ""
-
-repository:
-  configMapName: ""
-  pipRepository: ""
-  condaRepository: ""
-
-# active ou non la recherche de secrets discovery dans le namespace
-# see secret-{service}.yaml
-discovery:
-  hive: true
-  mlflow: true
-  metaflow: true
-  chromadb: true
-  milvus: true
-
-hive:
-  secretName: ""
-
-mlflow:
-  secretName: ""
-
-metaflow:
-  secretName: ""
-
-chromadb:
-  secretName: ""
-
-milvus:
-  secretName: ""
-
-coresite:
-  secretName: ""
 
 replicaCount: 1
 
@@ -140,9 +66,7 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    port: 8888
-  sparkui:
-    port: 4040
+    port: 80
   # Custom user-specified extra ports exposition.
   # If ingress or route is enabled, the exposed ports are also made available at the
   # {ingress,route}.userHostname URL (or variations, in case several ports are provided).
@@ -156,8 +80,6 @@ ingress:
   enabled: false
   tls: true
   ingressClassName: "nginx"
-  annotations: []
-    # kubernetes.io/tls-acme: "true"
   hostname: deployments.cloud.eosc-siesta.eu
   userHostname: chart-example-user.local
   secretName: deployments.cloud.eosc-siesta.eu-tls
@@ -166,7 +88,6 @@ ingress:
   useCertManager: false
   certManagerClusterIssuer: ""
   useTlsSecret: true
-
 route:
   enabled: false
   annotations: []
@@ -207,12 +128,6 @@ persistence:
   size: 10Gi
   # existingClaim: ""
 
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector:
   node.kubernetes.io/floating-ip: ""
@@ -222,17 +137,17 @@ tolerations: []
 
 affinity: {}
 
-startupProbe:
-  failureThreshold: 60
-  initialDelaySeconds: 10
-  periodSeconds: 10
-  successThreshold: 1
-  timeoutSeconds: 2
-
 userPreferences:
   darkMode: false
   language: "en"
 
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+  
 openshiftSCC:
   enabled: false
   scc: ""

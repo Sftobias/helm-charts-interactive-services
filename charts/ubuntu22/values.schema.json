@@ -35,46 +35,32 @@
         }
       }
     },
-    "rootPassword": {
+    "password": {
       "title": "Root Password",
-      "description": "Set the root password for the service.",
       "type": "string",
-      "form": true,
-      "format": "password",
-      "default": "",
-      "x-onyxia": {
-        "env": "ROOT_PASSWORD",
-        "overwriteDefaultWith": "{{randomPassword}}"
-      }
+      "render": "password",
+      "default": ""
     },
     "extraEnvVars": {
-      "title": "Root Password",
+      "title": "Environment variables available within your service",
       "type": "array",
-      "minItems": 1,
-      "maxItems": 1,
-      "default": [
-        {
-          "name": "ROOT_PASSWORD",
-          "value": ""
-        }
-      ],
+      "default": [],
+      "x-onyxia": {
+        "hidden": true,
+        "overwriteSchemaWith": "ide/extraenv.json"
+      },
       "items": {
+        "title": "",
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "const": "ROOT_PASSWORD",
-            "title": "Variable name",
-            "readOnly": true
+            "default": "VAR_NAME",
+            "pattern": "^[a-zA-Z0-9_]+$"
           },
           "value": {
             "type": "string",
-            "title": "Password",
-            "format": "password",
-            "default": "",
-            "x-onyxia": {
-              "overwriteDefaultWith": "{{randomPassword}}"
-            }
+            "default": ""
           }
         }
       }
