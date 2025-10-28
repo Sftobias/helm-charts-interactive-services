@@ -4,7 +4,7 @@ global:
 
 service:
   image:
-    version: "martaob/anjana:browser"
+    version: "harbor.cloud.eosc-siesta.eu/siesta/anjana"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
