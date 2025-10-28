@@ -355,6 +355,23 @@ entries:
     version: 2.3.33
   uc3:
   - apiVersion: v2
+    created: "2025-10-28T12:12:41.607391776Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Ubtuntu 22 exposed via Wetty terminal emulator
+    digest: 4880e566aa698263651771c5fc8c02739f46cc48317b16fe8cb5fbe62a8fad7f
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Wetty
+    - Ubuntu
+    name: uc3
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-4.0.3/uc3-4.0.3.tgz
+    version: 4.0.3
+  - apiVersion: v2
     created: "2025-10-28T11:58:09.173861046Z"
     dependencies:
     - name: library-chart
@@ -388,4 +405,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-4.0.1/uc3-4.0.1.tgz
     version: 4.0.1
-generated: "2025-10-28T11:58:09.173904417Z"
+generated: "2025-10-28T12:12:41.60745282Z"
