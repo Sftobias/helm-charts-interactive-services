@@ -1,6 +1,6 @@
 # uc3
 
-![Version: 4.0.2](https://img.shields.io/badge/Version-4.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.0.3](https://img.shields.io/badge/Version-4.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ubtuntu 22 exposed via Wetty terminal emulator
 
@@ -25,7 +25,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | extraEnvVars | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.suspend | bool | `false` |  |
-| imagePullSecrets | list | `[]` |  |
+| imagePullSecrets[0].name | string | `"harbor-robot-secret"` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu"` |  |
