@@ -1,6 +1,6 @@
-# ubuntu22
+# UC3
 
-![Version: 2.3.45](https://img.shields.io/badge/Version-2.3.45-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ubtuntu 22 exposed via Wetty terminal emulator
 
@@ -77,7 +77,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | service.image.custom.enabled | bool | `false` |  |
 | service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"sftobias/wetty-root:base"` |  |
+| service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/solar_regression_demo:latest"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
