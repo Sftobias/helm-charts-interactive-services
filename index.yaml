@@ -2,6 +2,23 @@ apiVersion: v1
 entries:
   anjana:
   - apiVersion: v2
+    created: "2025-10-28T09:09:25.629438959Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Ubtuntu 22 exposed via Wetty terminal emulator
+    digest: da280f6305f5d94181b392a3772522453faebbd9c70670db8c4e80ba9071f807
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Wetty
+    - Ubuntu
+    name: anjana
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/anjana-2.4.1/anjana-2.4.1.tgz
+    version: 2.4.1
+  - apiVersion: v2
     created: "2025-10-27T11:55:43.426233278Z"
     dependencies:
     - name: library-chart
@@ -319,4 +336,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.33/ubuntu22-2.3.33.tgz
     version: 2.3.33
-generated: "2025-10-27T11:55:43.620872868Z"
+generated: "2025-10-28T09:09:25.629473103Z"
