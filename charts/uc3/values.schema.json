@@ -35,12 +35,6 @@
         }
       }
     },
-    "password": {
-      "title": "Root Password",
-      "type": "string",
-      "render": "password",
-      "default": ""
-    },
     "extraEnvVars": {
       "title": "Environment variables available within your service",
       "type": "array",
