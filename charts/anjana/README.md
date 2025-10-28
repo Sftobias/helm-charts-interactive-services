@@ -1,6 +1,6 @@
 # anjana
 
-![Version: 2.4.0](https://img.shields.io/badge/Version-2.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.4.1](https://img.shields.io/badge/Version-2.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ubtuntu 22 exposed via Wetty terminal emulator
 
@@ -76,7 +76,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | service.image.custom.enabled | bool | `false` |  |
 | service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"martaob/anjana:browser"` |  |
+| service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/anjana"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
