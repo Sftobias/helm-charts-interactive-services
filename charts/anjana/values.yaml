@@ -4,7 +4,7 @@ global:
 
 service:
   image:
-    version: "harbor.cloud.eosc-siesta.eu/siesta/anjana"
+    version: "harbor.cloud.eosc-siesta.eu/siesta/anjana:onyxia"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
