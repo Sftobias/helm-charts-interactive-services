@@ -1,40 +1,5 @@
 apiVersion: v1
 entries:
-  UC3:
-  - apiVersion: v2
-    created: "2025-10-28T11:01:59.48800169Z"
-    dependencies:
-    - name: library-chart
-      repository: https://sftobias.github.io/helm-charts-interactive-services
-      version: 1.7.4
-    description: Ubtuntu 22 exposed via Wetty terminal emulator
-    digest: 81c3922be18a1d0582be4a93d62b9a8d17e3ea10d755bba1e84a580d04b5ecfe
-    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
-    keywords:
-    - Wetty
-    - Ubuntu
-    name: UC3
-    type: application
-    urls:
-    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/UC3-4.0.0/UC3-4.0.0.tgz
-    version: 4.0.0
-  - apiVersion: v2
-    created: "2025-10-28T10:54:51.498258554Z"
-    dependencies:
-    - name: library-chart
-      repository: https://sftobias.github.io/helm-charts-interactive-services
-      version: 1.7.4
-    description: Ubtuntu 22 exposed via Wetty terminal emulator
-    digest: 5d6ee1c78ee12fc368c4ccb8d4834c8691fd41a6ebaacb51947cb0ba6e749638
-    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
-    keywords:
-    - Wetty
-    - Ubuntu
-    name: UC3
-    type: application
-    urls:
-    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/UC3-1.0.0/UC3-1.0.0.tgz
-    version: 1.0.0
   anjana:
   - apiVersion: v2
     created: "2025-10-28T09:42:29.95703204Z"
