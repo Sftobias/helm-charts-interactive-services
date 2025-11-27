@@ -353,6 +353,23 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.33/ubuntu22-2.3.33.tgz
     version: 2.3.33
+  uc1:
+  - apiVersion: v2
+    created: "2025-11-27T13:17:27.142577392Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: UC1 model test
+    digest: 27e17a3ad0f5a513f8ad32e42a3892cc0ba34bf441e942fa65e772e6f610e2d3
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Ubuntu
+    name: uc1
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc1-1.0.0/uc1-1.0.0.tgz
+    version: 1.0.0
   uc3:
   - apiVersion: v2
     created: "2025-10-28T12:12:41.607391776Z"
@@ -405,4 +422,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-4.0.1/uc3-4.0.1.tgz
     version: 4.0.1
-generated: "2025-10-28T12:12:41.60745282Z"
+generated: "2025-11-27T13:17:27.142642195Z"
