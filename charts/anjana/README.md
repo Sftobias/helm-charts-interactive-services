@@ -25,7 +25,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | extraEnvVars | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.suspend | bool | `false` |  |
-| imagePullSecrets | list | `[]` |  |
+| imagePullSecrets[0].name | string | `"harbor-robot-secret"` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu"` |  |
