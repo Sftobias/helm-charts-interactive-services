@@ -55,12 +55,6 @@ podSecurityContext:
   fsGroup: 100
 
 securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
 
 networking:
   type: ClusterIP
