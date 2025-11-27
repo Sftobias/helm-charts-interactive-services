@@ -355,6 +355,22 @@ entries:
     version: 2.3.33
   uc1-mobagents:
   - apiVersion: v2
+    created: "2025-11-27T13:26:07.349352834Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: UC1 model test
+    digest: 6fe5c4371370d5beb71342bc906914f1a2de8e7907d1570dffad4174e0df036c
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Ubuntu
+    name: uc1-mobagents
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc1-mobagents-1.0.2/uc1-mobagents-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2025-11-27T13:18:42.122782922Z"
     dependencies:
     - name: library-chart
@@ -422,4 +438,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-4.0.1/uc3-4.0.1.tgz
     version: 4.0.1
-generated: "2025-11-27T13:18:42.122820903Z"
+generated: "2025-11-27T13:26:07.349407757Z"
