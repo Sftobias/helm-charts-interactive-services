@@ -1,8 +1,8 @@
-# uc3
+# uc1
 
-![Version: 4.0.3](https://img.shields.io/badge/Version-4.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Ubtuntu 22 exposed via Wetty terminal emulator
+UC1 model test
 
 ## Requirements
 
@@ -77,7 +77,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | service.image.custom.enabled | bool | `false` |  |
 | service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/solar_regression_demo:latest"` |  |
+| service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/uc1-mobagents:latest"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
