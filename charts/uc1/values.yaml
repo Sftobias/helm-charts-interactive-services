@@ -4,7 +4,7 @@ global:
 
 service:
   image:
-    version: "harbor.cloud.eosc-siesta.eu/siesta/uc1-mobagents:latest"
+    version: "harbor.cloud.eosc-siesta.eu/siesta/uc1-mobagents"
     pullPolicy: IfNotPresent
     custom:
       enabled: false
