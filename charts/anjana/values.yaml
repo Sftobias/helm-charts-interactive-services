@@ -32,7 +32,7 @@ environment:
 
 replicaCount: 1
 
-imagePullSecrets: 
+imagePullSecrets:
   - name: harbor-robot-secret
 
 nameOverride: ""
