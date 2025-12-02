@@ -4,8 +4,8 @@ global:
 
 service:
   image:
-    version: "harbor.cloud.eosc-siesta.eu/siesta/anjana:onyxia"
-    pullPolicy: Always
+    version: "harbor.cloud.eosc-siesta.eu/siesta/uc1-mobagents:1.0.0"
+    pullPolicy: IfNotPresent
     custom:
       enabled: false
       version: "harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"
@@ -68,7 +68,9 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    port: 80
+    port: 3000
+  sparkui:
+    port: 4040
   # Custom user-specified extra ports exposition.
   # If ingress or route is enabled, the exposed ports are also made available at the
   # {ingress,route}.userHostname URL (or variations, in case several ports are provided).
@@ -80,12 +82,6 @@ networking:
 
 ingress:
   enabled: false
-  annotations:
-    nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user,x-auth-request-email,authorization"
-    nginx.ingress.kubernetes.io/auth-signin: "https://auth-proxy.cloud.eosc-siesta.eu/oauth2/start?rd=$scheme://$host$request_uri"
-    nginx.ingress.kubernetes.io/auth-url: "https://auth-proxy.cloud.eosc-siesta.eu/oauth2/auth"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
   tls: true
   ingressClassName: "nginx"
   hostname: deployments.cloud.eosc-siesta.eu
@@ -155,7 +151,7 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-
+  
 openshiftSCC:
   enabled: false
   scc: ""
@@ -173,6 +169,3 @@ certificates: {}
 message:
   fr: ""
   en: ""
-
-repository:
-  pipRepository: ''
