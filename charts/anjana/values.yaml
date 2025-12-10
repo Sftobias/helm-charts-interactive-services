@@ -32,7 +32,7 @@ environment:
 
 replicaCount: 1
 
-imagePullSecrets: 
+imagePullSecrets:
   - name: harbor-robot-secret
 
 nameOverride: ""
@@ -149,7 +149,7 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-  
+
 openshiftSCC:
   enabled: false
   scc: ""
@@ -167,3 +167,6 @@ certificates: {}
 message:
   fr: ""
   en: ""
+
+repository:
+  pipRepository: ''

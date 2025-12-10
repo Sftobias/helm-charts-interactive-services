@@ -1,7 +1,7 @@
 apiVersion: v2
 name: anjana
 description: Ubtuntu 22 exposed via Wetty terminal emulator
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/anjana.png
 keywords:
   - Wetty
   - Ubuntu
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 2.4.2
+version: 2.4.4
 dependencies:
   - name: library-chart
     version: 1.7.4
