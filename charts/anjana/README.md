@@ -1,8 +1,8 @@
 # anjana
 
-![Version: 2.4.2](https://img.shields.io/badge/Version-2.4.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.4.3](https://img.shields.io/badge/Version-2.4.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Ubtuntu 22 exposed via Wetty terminal emulator
+Tool designed to make the anonymization of sensitive data easier and more intuitive. The app leverages the Anjana Python library for data anonymization.
 
 ## Requirements
 
@@ -26,6 +26,11 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | fullnameOverride | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets[0].name | string | `"harbor-robot-secret"` |  |
+| ingress.annotations."nginx.ingress.kubernetes.io/auth-response-headers" | string | `"x-auth-request-user,x-auth-request-email,authorization"` |  |
+| ingress.annotations."nginx.ingress.kubernetes.io/auth-signin" | string | `"https://auth-proxy.cloud.eosc-siesta.eu/oauth2/start?rd=$scheme://$host$request_uri"` |  |
+| ingress.annotations."nginx.ingress.kubernetes.io/auth-url" | string | `"https://auth-proxy.cloud.eosc-siesta.eu/oauth2/auth"` |  |
+| ingress.annotations."nginx.ingress.kubernetes.io/force-ssl-redirect" | string | `"true"` |  |
+| ingress.annotations."nginx.ingress.kubernetes.io/proxy-body-size" | string | `"10m"` |  |
 | ingress.certManagerClusterIssuer | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hostname | string | `"deployments.cloud.eosc-siesta.eu"` |  |
@@ -60,6 +65,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | proxy.httpsProxy | string | `""` |  |
 | proxy.noProxy | string | `""` |  |
 | replicaCount | int | `1` |  |
+| repository.pipRepository | string | `""` |  |
 | resources | object | `{}` |  |
 | route.annotations | list | `[]` |  |
 | route.enabled | bool | `false` |  |
@@ -75,7 +81,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
 | service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
-| service.image.pullPolicy | string | `"IfNotPresent"` |  |
+| service.image.pullPolicy | string | `"Always"` |  |
 | service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/anjana:onyxia"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
