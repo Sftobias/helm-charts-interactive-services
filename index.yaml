@@ -2,6 +2,23 @@ apiVersion: v1
 entries:
   anjana:
   - apiVersion: v2
+    created: "2025-12-11T08:29:41.369188563Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Tool designed to make the anonymization of sensitive data easier
+      and more intuitive. The app leverages the Anjana Python library for data anonymization.
+    digest: e15a801df6aecabefb798a49104394b6297be059fbaee5aab44d9d1404510184
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Anonymization
+    name: anjana
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/anjana-2.4.3/anjana-2.4.3.tgz
+    version: 2.4.3
+  - apiVersion: v2
     created: "2025-10-28T09:42:29.95703204Z"
     dependencies:
     - name: library-chart
@@ -454,4 +471,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-4.0.1/uc3-4.0.1.tgz
     version: 4.0.1
-generated: "2025-11-27T13:33:18.655661981Z"
+generated: "2025-12-11T08:29:41.369249677Z"
