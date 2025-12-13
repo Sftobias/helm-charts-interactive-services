@@ -1,10 +1,9 @@
 apiVersion: v2
 name: anjana
-description: Ubtuntu 22 exposed via Wetty terminal emulator
-icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/anjana.png
+description: Tool designed to make the anonymization of sensitive data easier and more intuitive. The app leverages the Anjana Python library for data anonymization.
+icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
 keywords:
-  - Wetty
-  - Ubuntu
+  - Anonymization
 # home: https://jupyter.org/
 # sources:
 #   - https://github.com/InseeFrLab/images-datascience
