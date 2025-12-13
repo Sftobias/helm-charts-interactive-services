@@ -2,6 +2,23 @@ apiVersion: v1
 entries:
   anjana:
   - apiVersion: v2
+    created: "2025-12-13T15:04:02.87327275Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Tool designed to make the anonymization of sensitive data easier
+      and more intuitive. The app leverages the Anjana Python library for data anonymization.
+    digest: a0248c539d9eca1d0c05d5068e1932f0e2ef68ba4fd7ecb971bc4a8f21e41041
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Anonymization
+    name: anjana
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/anjana-2.4.4/anjana-2.4.4.tgz
+    version: 2.4.4
+  - apiVersion: v2
     created: "2025-12-11T08:29:41.369188563Z"
     dependencies:
     - name: library-chart
@@ -126,6 +143,24 @@ entries:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/library-chart-1.7.4/library-chart-1.7.4.tgz
     version: 1.7.4
   ubuntu22:
+  - apiVersion: v2
+    created: "2025-12-13T15:04:03.041007296Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal
+      emulator.
+    digest: e14d1e2d5e0ab20d9675da0878081b1383e0dafd0a06a3890ed973eefbc5ec0b
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/ubuntu.png
+    keywords:
+    - Wetty
+    - Ubuntu
+    name: ubuntu22
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.46/ubuntu22-2.3.46.tgz
+    version: 2.3.46
   - apiVersion: v2
     created: "2025-10-23T14:12:49.599115262Z"
     dependencies:
@@ -370,6 +405,24 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.33/ubuntu22-2.3.33.tgz
     version: 2.3.33
+  uc1-agents-model:
+  - apiVersion: v2
+    created: "2025-12-13T15:04:03.173498374Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Agent-based epidemic simulation model designed to study the dynamics
+      of vector-borne diseases in spatially explicit environments.
+    digest: d54de32522dac1baf9c69cb367977210552586a45d08eb026e7c5d74cee6d8fd
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/uc1.png
+    keywords:
+    - Ubuntu
+    name: uc1-agents-model
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc1-agents-model-1.0.4/uc1-agents-model-1.0.4.tgz
+    version: 1.0.4
   uc1-mobagents:
   - apiVersion: v2
     created: "2025-11-27T13:33:18.65561339Z"
@@ -471,4 +524,22 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-4.0.1/uc3-4.0.1.tgz
     version: 4.0.1
-generated: "2025-12-11T08:29:41.369249677Z"
+  uc3-test:
+  - apiVersion: v2
+    created: "2025-12-13T15:04:03.328726615Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Test service for UC3.
+    digest: dad46db8958c7bdbea4bf5affe514c50fbac2cb7b41d4f8c4685636576e7805c
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/uc3.png
+    keywords:
+    - Wetty
+    - Ubuntu
+    name: uc3-test
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-test-4.0.4/uc3-test-4.0.4.tgz
+    version: 4.0.4
+generated: "2025-12-13T15:04:03.328836103Z"
