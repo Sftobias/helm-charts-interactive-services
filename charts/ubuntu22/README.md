@@ -1,8 +1,8 @@
 # ubuntu22
 
-![Version: 2.3.45](https://img.shields.io/badge/Version-2.3.45-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.3.46](https://img.shields.io/badge/Version-2.3.46-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Ubtuntu 22 exposed via Wetty terminal emulator
+Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 
 ## Requirements
 
@@ -61,6 +61,7 @@ Ubtuntu 22 exposed via Wetty terminal emulator
 | proxy.httpsProxy | string | `""` |  |
 | proxy.noProxy | string | `""` |  |
 | replicaCount | int | `1` |  |
+| repository.pipRepository | string | `""` |  |
 | resources | object | `{}` |  |
 | route.annotations | list | `[]` |  |
 | route.enabled | bool | `false` |  |

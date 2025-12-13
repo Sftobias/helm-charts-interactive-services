@@ -1,8 +1,8 @@
-# uc1-mobagents
+# uc1-agents-model
 
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-UC1 model test
+Agent-based epidemic simulation model designed to study the dynamics of vector-borne diseases in spatially explicit environments.
 
 ## Requirements
 
@@ -61,6 +61,7 @@ UC1 model test
 | proxy.httpsProxy | string | `""` |  |
 | proxy.noProxy | string | `""` |  |
 | replicaCount | int | `1` |  |
+| repository.pipRepository | string | `""` |  |
 | resources | object | `{}` |  |
 | route.annotations | list | `[]` |  |
 | route.enabled | bool | `false` |  |
