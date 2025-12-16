@@ -1,6 +1,6 @@
 apiVersion: v2
-name: uc3-test
-description: Test service for UC3.
+name: uc3-energy-forecasting
+description: Forecasting model for energy consumption and generation in households with solar panels, aimed at battery surplus optimization.
 icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/uc3.png
 keywords:
   - Wetty
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 4.0.4
+version: 4.0.5
 dependencies:
   - name: library-chart
     version: 1.7.4
