@@ -5,7 +5,7 @@ global:
 service:
   image:
     version: "harbor.cloud.eosc-siesta.eu/siesta/solar_regression_demo:latest"
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
     custom:
       enabled: false
       version: "harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"
