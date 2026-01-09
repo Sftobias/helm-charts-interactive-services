@@ -77,7 +77,7 @@ Forecasting model for energy consumption and generation in households with solar
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
 | service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
-| service.image.pullPolicy | string | `"IfNotPresent"` |  |
+| service.image.pullPolicy | string | `"Always"` |  |
 | service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/solar_regression_demo:latest"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
