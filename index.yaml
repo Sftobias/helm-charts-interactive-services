@@ -543,6 +543,24 @@ entries:
     version: 4.0.1
   uc3-energy-forecasting:
   - apiVersion: v2
+    created: "2026-01-09T11:22:16.503233481Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Forecasting model for energy consumption and generation in households
+      with solar panels, aimed at battery surplus optimization.
+    digest: 0c1556795826716ac11390ca6a68c4d5983646c8ee84c971072b2256da228212
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/uc3.png
+    keywords:
+    - Wetty
+    - Ubuntu
+    name: uc3-energy-forecasting
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.6/uc3-energy-forecasting-4.0.6.tgz
+    version: 4.0.6
+  - apiVersion: v2
     created: "2025-12-16T09:19:07.071854563Z"
     dependencies:
     - name: library-chart
@@ -578,4 +596,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-test-4.0.4/uc3-test-4.0.4.tgz
     version: 4.0.4
-generated: "2025-12-16T09:19:07.071940846Z"
+generated: "2026-01-09T11:22:16.503302579Z"
