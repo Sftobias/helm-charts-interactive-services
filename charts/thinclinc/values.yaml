@@ -67,7 +67,7 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    port: 300
+    port: 9930
   sparkui:
     port: 4040
   # Custom user-specified extra ports exposition.
