@@ -161,6 +161,25 @@ entries:
     version: 1.7.4
   thinclinc:
   - apiVersion: v2
+    created: "2026-01-13T11:23:54.82818906Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal
+      emulator.
+    digest: 6cc14b9ff1fdb9726549af0fa2ba74f3222cec688134e3b46060d4397c706361
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/ubuntu.png
+    keywords:
+    - Desktop
+    - Ubuntu
+    - Experimental
+    name: thinclinc
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/thinclinc-1.0.4/thinclinc-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     created: "2026-01-13T11:04:25.852184834Z"
     dependencies:
     - name: library-chart
@@ -554,4 +573,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-01-13T11:04:25.852226802Z"
+generated: "2026-01-13T11:23:54.828257237Z"
