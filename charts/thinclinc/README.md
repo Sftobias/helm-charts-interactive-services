@@ -1,6 +1,6 @@
 # thinclinc
 
-![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 
@@ -42,7 +42,7 @@ Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 | message.fr | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `22` |  |
+| networking.service.port | int | `300` |  |
 | networking.sparkui.port | int | `4040` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | networking.user.enabled | bool | `false` |  |
