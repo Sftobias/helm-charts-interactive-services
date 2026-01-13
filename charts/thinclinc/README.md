@@ -1,6 +1,6 @@
 # thinclinc
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 
@@ -74,7 +74,7 @@ Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 | security.networkPolicy.enabled | bool | `false` |  |
 | security.networkPolicy.from | list | `[]` |  |
 | security.password | string | `"changeme"` |  |
-| securityContext | object | `{}` |  |
+| securityContext.privileged | bool | `true` |  |
 | service.image.custom.enabled | bool | `false` |  |
 | service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
