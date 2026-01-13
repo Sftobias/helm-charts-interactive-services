@@ -1,5 +1,25 @@
 apiVersion: v1
 entries:
+  ThincLinc:
+  - apiVersion: v2
+    created: "2026-01-13T09:40:31.544023234Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal
+      emulator.
+    digest: e2995f0e148874024cba71460a7ae8fac7c19abf0a19f6e0e80362e14c78692c
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/ubuntu.png
+    keywords:
+    - Desktop
+    - Ubuntu
+    - Experimental
+    name: ThincLinc
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ThincLinc-1.0.0/ThincLinc-1.0.0.tgz
+    version: 1.0.0
   anjana:
   - apiVersion: v2
     created: "2025-12-16T09:19:06.896591517Z"
@@ -596,4 +616,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-test-4.0.4/uc3-test-4.0.4.tgz
     version: 4.0.4
-generated: "2026-01-09T11:22:16.503302579Z"
+generated: "2026-01-13T09:40:31.544096951Z"
