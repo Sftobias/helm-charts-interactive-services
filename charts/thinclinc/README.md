@@ -1,6 +1,6 @@
-# ubuntu22
+# ThincLinc
 
-![Version: 2.3.46](https://img.shields.io/badge/Version-2.3.46-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 
@@ -42,7 +42,7 @@ Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 | message.fr | string | `""` |  |
 | nameOverride | string | `""` |  |
 | networking.clusterIP | string | `"None"` |  |
-| networking.service.port | int | `3000` |  |
+| networking.service.port | int | `22` |  |
 | networking.sparkui.port | int | `4040` |  |
 | networking.type | string | `"ClusterIP"` |  |
 | networking.user.enabled | bool | `false` |  |
@@ -78,7 +78,7 @@ Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 | service.image.custom.enabled | bool | `false` |  |
 | service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/ubuntu22"` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"sftobias/wetty-root:base"` |  |
+| service.image.version | string | `"oposs/tl-ubuntu"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
