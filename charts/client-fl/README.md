@@ -1,10 +1,10 @@
 # client-fl
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Client for the federated learning application.
 
-**Homepage:** <https://jupyter.org/>
+**Homepage:** <https://docs.ai4os.eu/en/latest/howtos/train/federated-flower.html>
 
 ## Source Code
 
@@ -117,9 +117,9 @@ Client for the federated learning application.
 | security.password | string | `"changeme"` |  |
 | securityContext | object | `{}` |  |
 | service.image.custom.enabled | bool | `false` |  |
-| service.image.custom.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
-| service.image.pullPolicy | string | `"IfNotPresent"` |  |
-| service.image.version | string | `"inseefrlab/onyxia-jupyter-python:py3.12.9"` |  |
+| service.image.custom.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/client-fl"` |  |
+| service.image.pullPolicy | string | `"Always"` |  |
+| service.image.version | string | `"harbor.cloud.eosc-siesta.eu/siesta/client-fl"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
