@@ -231,6 +231,10 @@ spec:
         {{- end }}
         - name: {{ .Chart.Name }}
           securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add: ["SYS_ADMIN"]
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- if .Values.service.image.custom.enabled }}
           image: "{{ .Values.service.image.custom.version }}"
