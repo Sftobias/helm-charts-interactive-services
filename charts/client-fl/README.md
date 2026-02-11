@@ -1,14 +1,13 @@
-# jupyter-python
+# client-fl
 
-![Version: 2.3.21](https://img.shields.io/badge/Version-2.3.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-The JupyterLab IDE with Python and a collection of standard data science packages.
+Client for the federated learning application.
 
 **Homepage:** <https://jupyter.org/>
 
 ## Source Code
 
-* <https://github.com/InseeFrLab/images-datascience>
 * <https://github.com/InseeFrLab/helm-charts-interactive-services>
 
 ## Requirements
