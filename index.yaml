@@ -119,6 +119,27 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/anjana-2.3.21/anjana-2.3.21.tgz
     version: 2.3.21
+  client-fl:
+  - apiVersion: v2
+    created: "2026-02-11T11:51:59.030127187Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Client for the federated learning application.
+    digest: 8cb9070fea2657e229e005d69d44bd6e401e8e68eb31353affac191ea3a2e26d
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Federated Learning
+    - Python
+    name: client-fl
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/client-fl-1.0.0/client-fl-1.0.0.tgz
+    version: 1.0.0
   jupyter-python:
   - apiVersion: v2
     created: "2025-10-22T11:41:04.40199586Z"
@@ -573,4 +594,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-01-13T11:23:54.828257237Z"
+generated: "2026-02-11T11:51:59.030207112Z"
