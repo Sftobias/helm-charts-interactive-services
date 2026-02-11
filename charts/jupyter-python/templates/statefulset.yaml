@@ -90,6 +90,13 @@ spec:
           secret:
             secretName: {{ include "library-chart.secretNameCacerts" . }}
         {{- end }}
+        {{- if (.Values.s3).enabled }}
+        - name: s3-mount
+          emptyDir: {}
+        - name: dev-fuse
+          hostPath:
+            path: /dev/fuse
+        {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -147,6 +154,80 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
       containers:
+        {{- if (.Values.s3).enabled }}
+        - name: s3-mounter
+          image: rclone/rclone:1.66
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add: ["SYS_ADMIN"]
+          envFrom:
+            - secretRef:
+                name: {{ include "library-chart.secretNameS3" . }}
+          env:
+            # Rclone config por variables de entorno (sin necesidad de fichero)
+            - name: RCLONE_CONFIG_S3_TYPE
+              value: s3
+            - name: RCLONE_CONFIG_S3_PROVIDER
+              value: Other
+            - name: RCLONE_CONFIG_S3_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_ACCESS_KEY_ID
+            - name: RCLONE_CONFIG_S3_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: RCLONE_CONFIG_S3_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_S3_ENDPOINT
+            - name: RCLONE_CONFIG_S3_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_DEFAULT_REGION
+            - name: RCLONE_CONFIG_S3_FORCE_PATH_STYLE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_PATH_STYLE_ACCESS
+
+            {{- if .Values.s3.sessionToken }}
+            - name: RCLONE_CONFIG_S3_SESSION_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_SESSION_TOKEN
+            {{- end }}
+
+          command: ["/bin/sh","-c"]
+          args:
+            - |
+              set -e
+              echo "Mounting S3..."
+              mkdir -p /mnt/s3
+              # Monta bucket/prefix en /mnt/s3
+              rclone mount s3:{{ .Values.s3.bucket }}{{- if .Values.s3.prefix }}/{{ .Values.s3.prefix }}{{- end }} /mnt/s3 \
+                --allow-other \
+                --dir-cache-time 1m \
+                --poll-interval 1m \
+                --vfs-cache-mode writes \
+                --vfs-cache-max-age 1h \
+                --vfs-read-chunk-size 64M \
+                --vfs-read-chunk-size-limit 1G
+          volumeMounts:
+            - name: s3-mount
+              mountPath: /mnt/s3
+              mountPropagation: Bidirectional
+            - name: dev-fuse
+              mountPath: /dev/fuse
+        {{- end }}
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -259,6 +340,10 @@ spec:
             - mountPath: /home/{{ .Values.environment.user }}/work
               subPath: work
               name: home
+            {{- if (.Values.s3).enabled }}
+            - name: s3-mount
+              mountPath: {{ .Values.s3.mountPath | default (printf "/home/%s/work/s3" .Values.environment.user) }}
+            {{- end }}
             - mountPath: /dev/shm
               name: dshm
             {{- if (.Values.discovery).hive }}
