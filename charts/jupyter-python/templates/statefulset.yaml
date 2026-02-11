@@ -215,6 +215,7 @@ spec:
               # Monta bucket/prefix en /mnt/s3
               rclone mount s3:{{ .Values.s3.bucket }}{{- if .Values.s3.prefix }}/{{ .Values.s3.prefix }}{{- end }} /mnt/s3 \
                 --allow-other \
+                --allow-non-empty \
                 --dir-cache-time 1m \
                 --poll-interval 1m \
                 --vfs-cache-mode writes \
