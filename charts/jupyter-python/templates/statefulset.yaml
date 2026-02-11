@@ -231,11 +231,7 @@ spec:
         {{- end }}
         - name: {{ .Chart.Name }}
           securityContext:
-            privileged: true
-            {% comment %} allowPrivilegeEscalation: true
-            capabilities:
-              add: ["SYS_ADMIN"] {% endcomment %}
-            {% comment %} {{- toYaml .Values.securityContext | nindent 12 }} {% endcomment %}
+            {{- toYaml .Values.securityContext | nindent 12 }}
           {{- if .Values.service.image.custom.enabled }}
           image: "{{ .Values.service.image.custom.version }}"
           {{- else }}
@@ -349,7 +345,7 @@ spec:
             - name: s3-mount
               mountPath: {{ .Values.s3.mountPath | default (printf "/home/%s/work/s3" .Values.environment.user) }}
               subPath: remote
-              mountPropagation: Bidirectional
+              mountPropagation: HostToContainer
             {{- end }}
             - mountPath: /dev/shm
               name: dshm
