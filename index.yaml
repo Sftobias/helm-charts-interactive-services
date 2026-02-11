@@ -162,6 +162,28 @@ entries:
     version: 1.0.0
   jupyter-python:
   - apiVersion: v2
+    created: "2026-02-11T18:27:16.453626002Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: The JupyterLab IDE with Python and a collection of standard data
+      science packages.
+    digest: 85e52024a36fea0853d05a6ea960d8f83b47e2e0615f7a5907ae400205fd81e0
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-python
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-python-2.3.26/jupyter-python-2.3.26.tgz
+    version: 2.3.26
+  - apiVersion: v2
     created: "2026-02-11T18:18:31.947383719Z"
     dependencies:
     - name: library-chart
@@ -702,4 +724,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-02-11T18:18:31.947482854Z"
+generated: "2026-02-11T18:27:16.453716841Z"
