@@ -4,11 +4,11 @@ global:
 
 service:
   image:
-    version: "inseefrlab/onyxia-jupyter-python:py3.12.9"
-    pullPolicy: IfNotPresent
+    version: "harbor.cloud.eosc-siesta.eu/siesta/client-fl"
+    pullPolicy: Always
     custom:
       enabled: false
-      version: "inseefrlab/onyxia-jupyter-python:py3.12.9"
+      version: "harbor.cloud.eosc-siesta.eu/siesta/client-fl"
 
 security:
   password: "changeme"

@@ -1,11 +1,11 @@
 apiVersion: v2
 name: client-fl
 description: Client for the federated learning application.
-icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/flower-client.png
 keywords:
   - Federated Learning
   - Python
-home: https://jupyter.org/
+home: https://docs.ai4os.eu/en/latest/howtos/train/federated-flower.html
 sources:
   - https://github.com/InseeFrLab/helm-charts-interactive-services
 
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.0.0
+version: 1.0.1
 dependencies:
   - name: library-chart
     version: 1.7.4
