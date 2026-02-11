@@ -232,10 +232,10 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             privileged: true
-            allowPrivilegeEscalation: true
+            {% comment %} allowPrivilegeEscalation: true
             capabilities:
-              add: ["SYS_ADMIN"]
-            {{- toYaml .Values.securityContext | nindent 12 }}
+              add: ["SYS_ADMIN"] {% endcomment %}
+            {% comment %} {{- toYaml .Values.securityContext | nindent 12 }} {% endcomment %}
           {{- if .Values.service.image.custom.enabled }}
           image: "{{ .Values.service.image.custom.version }}"
           {{- else }}
