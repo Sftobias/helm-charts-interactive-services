@@ -25,6 +25,8 @@ security:
 #   - name: FOO
 #     value: "bar"
 extraEnvVars:
+  - name: FOO
+    value: "bar"
   - name: FILE_MODEL
     value: "{{ .s3.workingDirectoryPath }}/uc1_data/model_SIESTA_0_13012025.json"
   - name: FILE_DENSITIES_MOSQUITOS
