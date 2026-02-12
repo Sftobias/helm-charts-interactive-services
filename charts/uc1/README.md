@@ -1,6 +1,6 @@
 # uc1-agents-model
 
-![Version: 1.0.18](https://img.shields.io/badge/Version-1.0.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.19](https://img.shields.io/badge/Version-1.0.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Agent-based epidemic simulation model designed to study the dynamics of vector-borne diseases in spatially explicit environments.
 
@@ -39,7 +39,7 @@ Agent-based epidemic simulation model designed to study the dynamics of vector-b
 | configEnvVars[1].name | string | `"FILE_DENSITIES"` |  |
 | configEnvVars[1].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[2].name | string | `"IN_DATA_CELLS"` |  |
-| configEnvVars[2].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_cells/celdas_marzo_2020.shp.xml\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
+| configEnvVars[2].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_cells/celdas_marzo_2020.shp\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[3].name | string | `"IN_DATA_MOB"` |  |
 | configEnvVars[3].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_mobility/ine_data.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[4].name | string | `"IN_DATA_TRANS"` |  |
