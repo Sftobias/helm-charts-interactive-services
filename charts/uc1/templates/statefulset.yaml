@@ -35,26 +35,6 @@ spec:
             sizeLimit: 10Gi
         - name: config-files
           emptyDir: {}
-        {{- if (.Values.discovery).hive }}
-        - name: secret-hive
-          secret:
-            secretName: {{ include "library-chart.secretNameHive" . }}
-        {{- end }}
-        {{- if (.Values.proxy).enabled }}
-        - name: secret-proxy
-          secret:
-            secretName: {{ include "library-chart.secretNameProxy" . }}
-        {{- end }}
-        {{- if (.Values.discovery).metaflow }}
-        - name: secret-metaflow
-          secret:
-            secretName: {{ include "library-chart.secretNameMetaflow" . }}
-        {{- end }}
-        {{- if (.Values.certificates).cacerts }}
-        - name: cacerts
-          secret:
-            secretName: {{ include "library-chart.secretNameCacerts" . }}
-        {{- end }}
         {{- if (.Values.s3).enabled }}
         - name: s3-mount
           emptyDir: {}
@@ -80,38 +60,9 @@ spec:
             - -c
             - |
               echo 'initContainer make-secrets-writable is started';
-              {{- if .Values.discovery.hive }}
-              mkdir /dest/hive;
-              cp /src/hive/hive-site.xml /dest/hive/hive-site.xml;
-              {{- end }}
-              {{- if .Values.discovery.metaflow }}
-              mkdir /dest/metaflow/;
-              cp /src/metaflow/config.json /dest/metaflow/config.json;
-              {{- end }}
-              {{- if and .Values.certificates .Values.certificates.cacerts }}
-              mkdir /dest/cacerts;
-              {{- if regexMatch "^https?://" .Values.certificates.cacerts }}
-              curl -s $(cat /cacerts/ca-certs.url) -o /tmp/ca.pem
-              {{- else }}
-              cp /cacerts/ca.pem /tmp/ca.pem
-              {{- end }}
-              awk 'BEGIN {c=0;} /BEGIN CERT/{c++} { print > "/dest/cacerts/cert." c ".crt"}' < /tmp/ca.pem;
-              {{- end }}
           volumeMounts:
             - name: config-files
               mountPath: /dest
-            {{- if (.Values.certificates).cacerts }}
-            - name: cacerts
-              mountPath: /cacerts
-            {{- end }}
-            {{- if (.Values.discovery).hive }}
-            - name: secret-hive
-              mountPath: /src/hive
-            {{- end }}
-            {{- if (.Values.discovery).metaflow }}
-            - name : secret-metaflow
-              mountPath: /src/metaflow
-            {{- end }}
           resources:
             limits:
               cpu: 50m
