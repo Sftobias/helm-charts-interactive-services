@@ -19,6 +19,9 @@ spec:
         {{- if (.Values.s3).enabled }}
         checksum/s3: {{ include (print $.Template.BasePath "/secret-s3.yaml") . | sha256sum }}
         {{- end }}
+        {{- if .Values.configEnvVars }}
+        checksum/configenv: {{ include (print $.Template.BasePath "/secret-configenv.yaml") . | sha256sum }}
+        {{- end }}
         {{- if (include "library-chart.repository.enabled"  .) }}
         checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
         {{- end }}
@@ -89,6 +92,10 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "library-chart.secretNameS3" . }}
+            {{- if .Values.configEnvVars }}
+            - secretRef:
+                name: {{ printf "%s-secretconfigenv" (include "library-chart.fullname" .) }}
+            {{- end }}
             {{- if .Values.extraEnvVars }}
             - secretRef:
                 name: {{ include "library-chart.secretNameExtraEnv" . }}
@@ -203,6 +210,10 @@ spec:
             {{- if (.Values.s3).enabled }}
             - secretRef:
                 name: {{ include "library-chart.secretNameS3" . }}
+            {{- end }}
+            {{- if .Values.configEnvVars }}
+            - secretRef:
+                name: {{ printf "%s-secretconfigenv" (include "library-chart.fullname" .) }}
             {{- end }}
             {{- if .Values.extraEnvVars }}
             - secretRef:

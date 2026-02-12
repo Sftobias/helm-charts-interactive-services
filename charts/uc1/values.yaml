@@ -24,9 +24,11 @@ security:
 # extraEnvVars:
 #   - name: FOO
 #     value: "bar"
-extraEnvVars:
-  - name: FOO
-    value: "bar"
+extraEnvVars: []
+
+# Array with (templated) config environment variables bundled with this chart.
+# They are mounted in addition to extraEnvVars.
+configEnvVars:
   - name: FILE_MODEL
     value: "{{ .s3.workingDirectoryPath }}/uc1_data/model_SIESTA_0_13012025.json"
   - name: FILE_DENSITIES_MOSQUITOS
