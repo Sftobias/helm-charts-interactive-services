@@ -172,11 +172,6 @@ spec:
           image: "{{ .Values.service.image.version }}"
           {{- end }}
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
-          command: ["/bin/sh", "-c"]
-          args:
-            - |
-              echo "Debug mode: container waiting to inspect env vars"
-              sleep infinity
           env:
             - name: KUBERNETES_POD_NAME
               valueFrom:
