@@ -24,7 +24,42 @@ security:
 # extraEnvVars:
 #   - name: FOO
 #     value: "bar"
-extraEnvVars: []
+extraEnvVars:
+  - name: FILE_MODEL
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/model_SIESTA_0_13012025.json"
+  - name: FILE_DENSITIES_MOSQUITOS
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/df_mosquito_weekly_densities.csv"
+  - name: FILENAME_CELLS
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/ine_cells/celdas_marzo_2020.shp"
+  - name: FILENAME_MOB
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/ine_mobility/ine_data.csv"
+  - name: FILENAME_MEANS_TRANS
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/means_transport_per_mun_type_norm.csv"
+  - name: FILENAME_TRIPS_PER_HOUR_DES
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/n_trips_per_hour_des.csv"
+  - name: FILENAME_TRIPS
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/probs_by_age_ntrips.csv"
+  - name: FILENAME_TT_CONTINUA_COMPLETO
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/tt_continua_completo.csv"
+  - name: FILENAME_TT_CONTINUA_PARCIAL
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/tt_continua_parcial.csv"
+  - name: FILENAME_TT_PARTIDA_COMPLETO
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/tt_partida_completo.csv"
+  - name: FILENAME_TT_UNI
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/tt_universidad.csv"
+  - name: PATH_POPULATION_INPUT
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/population/"
+  - name: OUT_PATH_PREPROCESSOR
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_preprocessor"
+  - name: OUT_PATH_PREVIOUS_PARAMETRIZATION
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_previous_parametrization"
+  - name: OUT_PATH_DAY_SIMULATOR
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_day_simulator"
+  - name: OUT_PATH_DATA_PREPARATION_STEP_SIMULATOR
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_preparation_step_simulator"
+  - name: OUT_PATH_STEP_SIMULATOR
+    value: "{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_step_simulator"
+
 
 environment:
   user: onyxia
