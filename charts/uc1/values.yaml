@@ -34,7 +34,7 @@ configEnvVars:
   - name: FILE_DENSITIES
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
   - name: IN_DATA_CELLS
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_cells/celdas_marzo_2020.shp\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_cells/celdas_marzo_2020.shp.xml\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
   - name: IN_DATA_MOB
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_mobility/ine_data.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
   - name: IN_DATA_TRANS
