@@ -121,6 +121,26 @@ entries:
     version: 2.3.21
   client-fl:
   - apiVersion: v2
+    created: "2026-02-12T08:14:06.97489231Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Client for the federated learning application.
+    digest: 595eb151b97dc8ef356a4dee419c944ce3951735c92b02daf672b99933ba59e8
+    home: https://docs.ai4os.eu/en/latest/howtos/train/federated-flower.html
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/flower-client.png
+    keywords:
+    - Federated Learning
+    - Python
+    name: client-fl
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/client-fl-1.0.4/client-fl-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     created: "2026-02-12T08:08:41.129689279Z"
     dependencies:
     - name: library-chart
@@ -803,4 +823,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-02-12T08:08:41.12977825Z"
+generated: "2026-02-12T08:14:06.974996874Z"
