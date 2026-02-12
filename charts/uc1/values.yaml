@@ -31,37 +31,37 @@ extraEnvVars: []
 configEnvVars:
   - name: FILE_MODEL
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILE_DENSITIES_MOSQUITOS
+  - name: FILE_DENSITIES
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_CELLS
+  - name: IN_DATA_CELLS
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_cells/celdas_marzo_2020.shp\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_MOB
+  - name: IN_DATA_MOB
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_mobility/ine_data.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_MEANS_TRANS
+  - name: IN_DATA_TRANS
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/means_transport_per_mun_type_norm.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_TRIPS_PER_HOUR_DES
+  - name: IN_DATA_TRIPS_HOURLY
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/n_trips_per_hour_des.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_TRIPS
+  - name: IN_DATA_TRIPS
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/probs_by_age_ntrips.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_TT_CONTINUA_COMPLETO
+  - name: IN_DATA_CON_COMPLETO
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_continua_completo.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_TT_CONTINUA_PARCIAL
+  - name: IN_DATA_CON_PARCIAL
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_continua_parcial.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_TT_PARTIDA_COMPLETO
+  - name: IN_DATA_PARTIDA_COMPLETO
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_partida_completo.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: FILENAME_TT_UNI
+  - name: IN_DATA_TT_UNI
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_universidad.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: PATH_POPULATION_INPUT
+  - name: IN_DATA_POP
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/population/\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: OUT_PATH_PREPROCESSOR
+  - name: OUT_PREPROCESSOR
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_preprocessor\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: OUT_PATH_PREVIOUS_PARAMETRIZATION
+  - name: OUT_PREVIOUS_PARAMETRIZATION
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_previous_parametrization\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: OUT_PATH_DAY_SIMULATOR
+  - name: OUT_DAY_SIMULATOR
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_day_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: OUT_PATH_DATA_PREPARATION_STEP_SIMULATOR
+  - name: OUT_DATA_PREPARATION_STEP_SIMULATOR
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_preparation_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
-  - name: OUT_PATH_STEP_SIMULATOR
+  - name: OUT_STEP_SIMULATOR
     value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
 
 
