@@ -1,6 +1,6 @@
 # uc1-agents-model
 
-![Version: 1.0.12](https://img.shields.io/badge/Version-1.0.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.13](https://img.shields.io/badge/Version-1.0.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Agent-based epidemic simulation model designed to study the dynamics of vector-borne diseases in spatially explicit environments.
 
@@ -21,39 +21,39 @@ Agent-based epidemic simulation model designed to study the dynamics of vector-b
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | certificates | object | `{}` |  |
 | configEnvVars[0].name | string | `"FILE_MODEL"` |  |
-| configEnvVars[0].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/model_SIESTA_0_13012025.json"` |  |
+| configEnvVars[0].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[10].name | string | `"FILENAME_TT_UNI"` |  |
-| configEnvVars[10].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_universidad.csv"` |  |
+| configEnvVars[10].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_universidad.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[11].name | string | `"PATH_POPULATION_INPUT"` |  |
-| configEnvVars[11].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/population/"` |  |
+| configEnvVars[11].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/population/\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[12].name | string | `"OUT_PATH_PREPROCESSOR"` |  |
-| configEnvVars[12].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_preprocessor"` |  |
+| configEnvVars[12].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_preprocessor\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[13].name | string | `"OUT_PATH_PREVIOUS_PARAMETRIZATION"` |  |
-| configEnvVars[13].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_previous_parametrization"` |  |
+| configEnvVars[13].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_previous_parametrization\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[14].name | string | `"OUT_PATH_DAY_SIMULATOR"` |  |
-| configEnvVars[14].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_day_simulator"` |  |
+| configEnvVars[14].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_day_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[15].name | string | `"OUT_PATH_DATA_PREPARATION_STEP_SIMULATOR"` |  |
-| configEnvVars[15].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_preparation_step_simulator"` |  |
+| configEnvVars[15].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_preparation_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[16].name | string | `"OUT_PATH_STEP_SIMULATOR"` |  |
-| configEnvVars[16].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_step_simulator"` |  |
+| configEnvVars[16].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[1].name | string | `"FILE_DENSITIES_MOSQUITOS"` |  |
-| configEnvVars[1].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/df_mosquito_weekly_densities.csv"` |  |
+| configEnvVars[1].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[2].name | string | `"FILENAME_CELLS"` |  |
-| configEnvVars[2].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/ine_cells/celdas_marzo_2020.shp"` |  |
+| configEnvVars[2].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_cells/celdas_marzo_2020.shp\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[3].name | string | `"FILENAME_MOB"` |  |
-| configEnvVars[3].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/ine_mobility/ine_data.csv"` |  |
+| configEnvVars[3].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_mobility/ine_data.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[4].name | string | `"FILENAME_MEANS_TRANS"` |  |
-| configEnvVars[4].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/means_transport_per_mun_type_norm.csv"` |  |
+| configEnvVars[4].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/means_transport_per_mun_type_norm.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[5].name | string | `"FILENAME_TRIPS_PER_HOUR_DES"` |  |
-| configEnvVars[5].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/n_trips_per_hour_des.csv"` |  |
+| configEnvVars[5].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/n_trips_per_hour_des.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[6].name | string | `"FILENAME_TRIPS"` |  |
-| configEnvVars[6].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/probs_by_age_ntrips.csv"` |  |
+| configEnvVars[6].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/probs_by_age_ntrips.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[7].name | string | `"FILENAME_TT_CONTINUA_COMPLETO"` |  |
-| configEnvVars[7].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_continua_completo.csv"` |  |
+| configEnvVars[7].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_continua_completo.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[8].name | string | `"FILENAME_TT_CONTINUA_PARCIAL"` |  |
-| configEnvVars[8].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_continua_parcial.csv"` |  |
+| configEnvVars[8].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_continua_parcial.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | configEnvVars[9].name | string | `"FILENAME_TT_PARTIDA_COMPLETO"` |  |
-| configEnvVars[9].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_partida_completo.csv"` |  |
+| configEnvVars[9].value | string | `"{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_partida_completo.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | extraEnvVars | list | `[]` |  |
