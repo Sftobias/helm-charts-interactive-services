@@ -753,6 +753,23 @@ entries:
     version: 2.3.33
   uc1-agents-model:
   - apiVersion: v2
+    created: "2026-02-12T15:29:42.437842733Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.4
+    description: Agent-based epidemic simulation model designed to study the dynamics
+      of vector-borne diseases in spatially explicit environments.
+    digest: 0b67c62a8de718569821fc4607b55dea454c556482c23e88568cc6661a39a65b
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/uc1.png
+    keywords:
+    - Ubuntu
+    name: uc1-agents-model
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc1-agents-model-1.0.18/uc1-agents-model-1.0.18.tgz
+    version: 1.0.18
+  - apiVersion: v2
     created: "2026-02-12T15:18:37.837768881Z"
     dependencies:
     - name: library-chart
@@ -1027,4 +1044,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-02-12T15:18:37.837895532Z"
+generated: "2026-02-12T15:29:42.438031335Z"
