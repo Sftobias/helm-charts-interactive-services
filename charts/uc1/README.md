@@ -1,6 +1,6 @@
 # uc1-agents-model
 
-![Version: 1.0.7](https://img.shields.io/badge/Version-1.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.8](https://img.shields.io/badge/Version-1.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Agent-based epidemic simulation model designed to study the dynamics of vector-borne diseases in spatially explicit environments.
 
@@ -22,7 +22,40 @@ Agent-based epidemic simulation model designed to study the dynamics of vector-b
 | certificates | object | `{}` |  |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
-| extraEnvVars | list | `[]` |  |
+| extraEnvVars[0].name | string | `"FILE_MODEL"` |  |
+| extraEnvVars[0].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/model_SIESTA_0_13012025.json"` |  |
+| extraEnvVars[10].name | string | `"FILENAME_TT_UNI"` |  |
+| extraEnvVars[10].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_universidad.csv"` |  |
+| extraEnvVars[11].name | string | `"PATH_POPULATION_INPUT"` |  |
+| extraEnvVars[11].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/population/"` |  |
+| extraEnvVars[12].name | string | `"OUT_PATH_PREPROCESSOR"` |  |
+| extraEnvVars[12].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_preprocessor"` |  |
+| extraEnvVars[13].name | string | `"OUT_PATH_PREVIOUS_PARAMETRIZATION"` |  |
+| extraEnvVars[13].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_previous_parametrization"` |  |
+| extraEnvVars[14].name | string | `"OUT_PATH_DAY_SIMULATOR"` |  |
+| extraEnvVars[14].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_day_simulator"` |  |
+| extraEnvVars[15].name | string | `"OUT_PATH_DATA_PREPARATION_STEP_SIMULATOR"` |  |
+| extraEnvVars[15].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_preparation_step_simulator"` |  |
+| extraEnvVars[16].name | string | `"OUT_PATH_STEP_SIMULATOR"` |  |
+| extraEnvVars[16].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/outputs/out_data_step_simulator"` |  |
+| extraEnvVars[1].name | string | `"FILE_DENSITIES_MOSQUITOS"` |  |
+| extraEnvVars[1].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/df_mosquito_weekly_densities.csv"` |  |
+| extraEnvVars[2].name | string | `"FILENAME_CELLS"` |  |
+| extraEnvVars[2].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/ine_cells/celdas_marzo_2020.shp"` |  |
+| extraEnvVars[3].name | string | `"FILENAME_MOB"` |  |
+| extraEnvVars[3].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/ine_mobility/ine_data.csv"` |  |
+| extraEnvVars[4].name | string | `"FILENAME_MEANS_TRANS"` |  |
+| extraEnvVars[4].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/means_transport_per_mun_type_norm.csv"` |  |
+| extraEnvVars[5].name | string | `"FILENAME_TRIPS_PER_HOUR_DES"` |  |
+| extraEnvVars[5].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/n_trips_per_hour_des.csv"` |  |
+| extraEnvVars[6].name | string | `"FILENAME_TRIPS"` |  |
+| extraEnvVars[6].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/probs_by_age_ntrips.csv"` |  |
+| extraEnvVars[7].name | string | `"FILENAME_TT_CONTINUA_COMPLETO"` |  |
+| extraEnvVars[7].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_continua_completo.csv"` |  |
+| extraEnvVars[8].name | string | `"FILENAME_TT_CONTINUA_PARCIAL"` |  |
+| extraEnvVars[8].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_continua_parcial.csv"` |  |
+| extraEnvVars[9].name | string | `"FILENAME_TT_PARTIDA_COMPLETO"` |  |
+| extraEnvVars[9].value | string | `"{{ .s3.workingDirectoryPath }}/uc1_data/tt_partida_completo.csv"` |  |
 | fullnameOverride | string | `""` |  |
 | global.suspend | bool | `false` |  |
 | imagePullSecrets[0].name | string | `"harbor-robot-secret"` |  |
