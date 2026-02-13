@@ -377,6 +377,14 @@ entries:
     version: 2.3.21
   library-chart:
   - apiVersion: v2
+    created: "2026-02-13T09:19:36.528801693Z"
+    digest: 6b161e86a75975fdb154ce6a17871aed95fc7fb91f5c6daf365180d1f5cf6d25
+    name: library-chart
+    type: library
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/library-chart-1.7.9/library-chart-1.7.9.tgz
+    version: 1.7.9
+  - apiVersion: v2
     created: "2026-02-13T09:09:07.654759788Z"
     digest: 064d128633f903d5c206b35748d8280b8711a48120bfaf59147d99c1b02136b9
     name: library-chart
@@ -1102,4 +1110,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-02-13T09:11:07.955553003Z"
+generated: "2026-02-13T09:19:36.528947916Z"
