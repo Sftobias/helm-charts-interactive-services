@@ -8,7 +8,7 @@ Ubuntu 22.04 (Jammy Jellyfish) exposed via Wetty web-based terminal emulator.
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.8 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.9 |
 
 ## Values
 
