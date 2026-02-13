@@ -4,7 +4,6 @@ ingress:
   ingressClassName: "nginx"
   annotations: 
     - "nginx.ingress.kubernetes.io/proxy-body-size": "1024m"
-    # kubernetes.io/tls-acme: "true"
   hostname: deployments.cloud.eosc-siesta.eu
   userHostname: chart-example-user.local
   secretName: deployments.cloud.eosc-siesta.eu-tls
