@@ -8,7 +8,7 @@ Tool designed to make the anonymization of sensitive data easier and more intuit
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.4 |
+| https://sftobias.github.io/helm-charts-interactive-services | library-chart | 1.7.8 |
 
 ## Values
 
