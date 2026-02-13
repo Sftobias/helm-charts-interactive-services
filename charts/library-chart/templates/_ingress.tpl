@@ -49,6 +49,7 @@ metadata:
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
     {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
   {{- if and .Values.ingress.ingressClassName (eq "true" (include "library-chart.ingress.supportsIngressClassname" .)) }}
@@ -95,6 +96,7 @@ metadata:
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
     {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
   {{- if and .Values.ingress.ingressClassName (eq "true" (include "library-chart.ingress.supportsIngressClassname" .)) }}
@@ -151,6 +153,7 @@ metadata:
   labels:
     {{- include "library-chart.labels" . | nindent 4 }}
   annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
     {{- include "library-chart.ingress.annotations" . | nindent 4 }}
 spec:
   {{- if and .Values.ingress.ingressClassName (eq "true" (include "library-chart.ingress.supportsIngressClassname" .)) }}
