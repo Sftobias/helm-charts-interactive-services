@@ -1,6 +1,6 @@
 # client-fl
 
-![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Client for the federated learning application.
 
@@ -62,7 +62,7 @@ Client for the federated learning application.
 | init.personalInit | string | `""` |  |
 | init.personalInitArgs | string | `""` |  |
 | init.regionInit | string | `""` |  |
-| init.standardInitPath | string | `"/opt/onyxia-init.sh"` |  |
+| init.standardInitPath | string | `""` |  |
 | kubernetes.enabled | bool | `false` |  |
 | kubernetes.role | string | `"view"` |  |
 | message.en | string | `""` |  |
