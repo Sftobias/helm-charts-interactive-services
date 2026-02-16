@@ -113,6 +113,22 @@ spec:
               value: {{ .Values.guacamole.extensions | quote }}
             - name: GUACD_HOSTNAME
               value: "127.0.0.1"
+            - name: POSTGRESQL_HOSTNAME
+              value: "127.0.0.1"
+            - name: POSTGRESQL_PORT
+              value: "5432"
+            - name: POSTGRESQL_DATABASE
+              value: {{ .Values.postgres.database | quote }}
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+                  key: POSTGRES_USER
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+                  key: POSTGRES_PASSWORD
           {{- if .Values.extraEnvVars }}
           envFrom:
             - secretRef:

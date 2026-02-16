@@ -32,7 +32,8 @@ guacd:
   image: "linuxserver/guacd:latest"
 
 guacamole:
-  extensions: ""
+  # Must include auth-jdbc so Guacamole can authenticate against PostgreSQL.
+  extensions: "auth-jdbc"
 
 persistence:
   drive:
