@@ -44,9 +44,9 @@ configEnvVars:
   - name: END_POINT
     value: "{{ .clientConfig.endpoint }}"
   - name: DATA_PATH
-    value: "{{ .clientConfig.dataPath }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.dataPath) }}"
   - name: MODEL_PATH
-    value: "{{ .clientConfig.modelPath }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.modelPath) }}"
   - name: MODEL_FILE
     value: "{{ .clientConfig.modelFile }}"
 

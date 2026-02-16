@@ -247,21 +247,25 @@
         "endpoint": {
           "title": "ENDPOINT",
           "type": "string",
+          "description": "Federated Learning server endpoint URL",
           "default": ""
         },
         "dataPath": {
           "title": "DATA PATH",
           "type": "string",
+          "description": "Relative path inside your mounted S3 working directory",
           "default": ""
         },
         "modelPath": {
           "title": "MODEL PATH",
           "type": "string",
+          "description": "Relative path inside your mounted S3 working directory",
           "default": ""
         },
         "modelFile": {
           "title": "MODEL FILE",
           "type": "string",
+          "description": "Model file name",
           "default": ""
         }
       }
