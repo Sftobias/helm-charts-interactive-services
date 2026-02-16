@@ -7,10 +7,10 @@ metadata:
     {{- include "library-chart.labels" . | nindent 4 }}
 data:
   guacamole.properties: |
-    guacd-hostname: {{ printf "%s-guacd" (include "library-chart.fullname" .) }}
+    guacd-hostname: 127.0.0.1
     guacd-port: 4822
 
-    postgresql-hostname: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+    postgresql-hostname: 127.0.0.1
     postgresql-port: 5432
     postgresql-database: {{ .Values.postgres.database }}
     postgresql-username: {{ .Values.postgres.username }}

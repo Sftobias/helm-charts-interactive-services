@@ -33,5 +33,23 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.record.size }}
+---
+{{- end }}
+{{- if .Values.persistence.postgres.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-postgres-data" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.postgres.accessMode }}
+  {{- if .Values.persistence.postgres.storageClassName }}
+  storageClassName: {{ .Values.persistence.postgres.storageClassName | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.postgres.size }}
 {{- end }}
 {{- end }}
