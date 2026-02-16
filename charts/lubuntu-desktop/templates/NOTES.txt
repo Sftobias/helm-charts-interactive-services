@@ -1,10 +1,9 @@
 Lubuntu desktop deployed (VNC only).
 
-Create a VNC connection in Apache Guacamole:
-   - Protocol: VNC
-   - Hostname: {{ include "library-chart.fullname" . }}
-   - Port: {{ .Values.lubuntu.vncPort }}
-   - Password: vncpasswd
+Apache Guacamole connection settings (VNC):
+  - Hostname: {{ include "library-chart.fullname" . }}
+  - Port: {{ .Values.lubuntu.vncPort }}
+  - Password: vncpasswd
 
 If Guacamole runs in another namespace, use:
   {{ include "library-chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
