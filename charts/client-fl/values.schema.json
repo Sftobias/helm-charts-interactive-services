@@ -267,6 +267,12 @@
           "type": "string",
           "description": "Model file name",
           "default": ""
+        },
+        "datacenter": {
+          "title": "DATACENTER",
+          "type": "string",
+          "description": "Datacenter name",
+          "default": ""
         }
       }
     },

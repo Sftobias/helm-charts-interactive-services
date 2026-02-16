@@ -38,6 +38,7 @@ clientConfig:
   dataPath: ""
   modelPath: ""
   modelFile: ""
+  datacenter: ""
 
 # Chart-defined env vars, independent from extraEnvVars.
 configEnvVars:
@@ -49,6 +50,8 @@ configEnvVars:
     value: "{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.modelPath) }}"
   - name: MODEL_FILE
     value: "{{ .clientConfig.modelFile }}"
+  - name: DATACENTER
+    value: "{{ .clientConfig.datacenter }}"
 
 environment:
   user: onyxia
