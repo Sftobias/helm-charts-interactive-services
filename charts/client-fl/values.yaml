@@ -32,6 +32,24 @@ init:
 #     value: "bar"
 extraEnvVars: []
 
+# Client config exposed in Onyxia form.
+clientConfig:
+  endpoint: ""
+  dataPath: ""
+  modelPath: ""
+  modelFile: ""
+
+# Chart-defined env vars, independent from extraEnvVars.
+configEnvVars:
+  - name: END_POINT
+    value: "{{ .clientConfig.endpoint }}"
+  - name: DATA_PATH
+    value: "{{ .clientConfig.dataPath }}"
+  - name: MODEL_PATH
+    value: "{{ .clientConfig.modelPath }}"
+  - name: MODEL_FILE
+    value: "{{ .clientConfig.modelFile }}"
+
 environment:
   user: onyxia
   group: users

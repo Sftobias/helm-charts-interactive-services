@@ -29,6 +29,9 @@ spec:
         {{- if (.Values.vault).enabled }}
         checksum/vault: {{ include (print $.Template.BasePath "/secret-vault.yaml") . | sha256sum }}
         {{- end }}
+        {{- if .Values.configEnvVars }}
+        checksum/configenv: {{ include (print $.Template.BasePath "/secret-configenv.yaml") . | sha256sum }}
+        {{- end }}
         {{- if not (empty (trim (include "library-chart.secretHive" .))) }}
         checksum/hive: {{ include (print $.Template.BasePath "/secret-hive.yaml") . | sha256sum }}
         {{- end }}
@@ -313,6 +316,10 @@ spec:
             {{- if not (empty (trim (include "library-chart.secretMilvus" .))) }}
             - secretRef:
                 name: {{ include "library-chart.secretNameMilvus" . }}
+            {{- end }}
+            {{- if .Values.configEnvVars }}
+            - secretRef:
+                name: {{ printf "%s-secretconfigenv" (include "library-chart.fullname" .) }}
             {{- end }}
             {{- if .Values.extraEnvVars }}
             - secretRef:

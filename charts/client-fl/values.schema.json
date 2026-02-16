@@ -239,6 +239,55 @@
         }
       }
     },
+    "clientConfig": {
+      "title": "CLIENT CONFIG",
+      "type": "object",
+      "form": true,
+      "properties": {
+        "endpoint": {
+          "title": "ENDPOINT",
+          "type": "string",
+          "default": ""
+        },
+        "dataPath": {
+          "title": "DATA PATH",
+          "type": "string",
+          "default": ""
+        },
+        "modelPath": {
+          "title": "MODEL PATH",
+          "type": "string",
+          "default": ""
+        },
+        "modelFile": {
+          "title": "MODEL FILE",
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "configEnvVars": {
+      "title": "Chart-defined environment variables",
+      "type": "array",
+      "x-onyxia": {
+        "hidden": true
+      },
+      "items": {
+        "title": "",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "VAR_NAME",
+            "pattern": "^[a-zA-Z0-9_]+$"
+          },
+          "value": {
+            "type": "string",
+            "default": ""
+          }
+        }
+      }
+    },
     "kubernetes": {
       "title": "Kubernetes permissions",
       "type": "object",
