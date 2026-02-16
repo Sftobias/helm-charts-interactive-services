@@ -323,6 +323,26 @@ entries:
   guacamole:
   - apiVersion: v2
     appVersion: 1.6.0
+    created: "2026-02-16T12:33:08.037543859Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Apache Guacamole remote desktop gateway (guacamole + guacd + postgres)
+    digest: 5b0aad452e09736993d8c8788213d876a81621bf8aba844c693c3b9d7484a76d
+    icon: https://guacamole.apache.org/images/guac-tricolor.svg
+    keywords:
+    - Guacamole
+    - Remote Desktop
+    - VNC
+    - RDP
+    name: guacamole
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/guacamole-0.2.2/guacamole-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.6.0
     created: "2026-02-16T10:16:30.308508218Z"
     dependencies:
     - name: library-chart
@@ -1445,4 +1465,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/xfce-desktop-0.1.0/xfce-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-16T12:32:35.394828098Z"
+generated: "2026-02-16T12:33:08.037734034Z"
