@@ -1,6 +1,6 @@
 # client-fl
 
-![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.7](https://img.shields.io/badge/Version-1.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Client for the federated learning application.
 
@@ -27,6 +27,18 @@ Client for the federated learning application.
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | certificates | object | `{}` |  |
 | chromadb.secretName | string | `""` |  |
+| clientConfig.dataPath | string | `""` |  |
+| clientConfig.endpoint | string | `""` |  |
+| clientConfig.modelFile | string | `""` |  |
+| clientConfig.modelPath | string | `""` |  |
+| configEnvVars[0].name | string | `"END_POINT"` |  |
+| configEnvVars[0].value | string | `"{{ .clientConfig.endpoint }}"` |  |
+| configEnvVars[1].name | string | `"DATA_PATH"` |  |
+| configEnvVars[1].value | string | `"{{ .clientConfig.dataPath }}"` |  |
+| configEnvVars[2].name | string | `"MODEL_PATH"` |  |
+| configEnvVars[2].value | string | `"{{ .clientConfig.modelPath }}"` |  |
+| configEnvVars[3].name | string | `"MODEL_FILE"` |  |
+| configEnvVars[3].value | string | `"{{ .clientConfig.modelFile }}"` |  |
 | coresite.secretName | string | `""` |  |
 | discovery.chromadb | bool | `true` |  |
 | discovery.hive | bool | `true` |  |
