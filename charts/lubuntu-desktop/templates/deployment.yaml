@@ -63,8 +63,6 @@ spec:
                   key: VNC_PASSWORD
             - name: VNC_PORT
               value: {{ .Values.lubuntu.vncPort | quote }}
-            - name: NO_VNC_PORT
-              value: {{ .Values.lubuntu.webPort | quote }}
           envFrom:
             - secretRef:
                 name: {{ include "library-chart.secretNameToken" . }}
@@ -73,8 +71,6 @@ spec:
                 name: {{ include "library-chart.secretNameExtraEnv" . }}
             {{- end }}
           ports:
-            - name: novnc
-              containerPort: {{ .Values.lubuntu.webPort }}
             - name: vnc
               containerPort: {{ .Values.lubuntu.vncPort }}
           resources:

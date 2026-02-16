@@ -23,9 +23,8 @@ extraEnvVars: []
 lubuntu:
   # VNC password used by the desktop container.
   vncPassword: "changeme"
-  # Typical defaults used by VNC desktop images.
+  # VNC server port.
   vncPort: 5901
-  webPort: 6901
 
 environment:
   user: onyxia
@@ -59,17 +58,15 @@ networking:
   type: ClusterIP
   clusterIP: None
   service:
-    # noVNC web UI
-    port: 6901
-    targetPort: 6901
-  # VNC port for Guacamole.
+    port: 5901
+    targetPort: 5901
   user:
-    enabled: true
+    enabled: false
     port: 5901
     ports: []
 
 ingress:
-  enabled: true
+  enabled: false
   tls: true
   ingressClassName: "nginx"
   annotations: []
