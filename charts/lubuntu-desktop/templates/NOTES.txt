@@ -1,14 +1,10 @@
 Lubuntu desktop deployed (VNC only).
 
-1) Set the VNC password inside the running pod (required by this image):
-   POD=$(kubectl -n {{ .Release.Namespace }} get pod -l app.kubernetes.io/instance={{ .Release.Name }} -o jsonpath='{.items[0].metadata.name}')
-   kubectl -n {{ .Release.Namespace }} exec -it "$POD" -- vncpasswd
-
-2) Create a VNC connection in Apache Guacamole:
+Create a VNC connection in Apache Guacamole:
    - Protocol: VNC
    - Hostname: {{ include "library-chart.fullname" . }}
    - Port: {{ .Values.lubuntu.vncPort }}
-   - Password: the one set with vncpasswd in step 1
+   - Password: vncpasswd
 
 If Guacamole runs in another namespace, use:
   {{ include "library-chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
