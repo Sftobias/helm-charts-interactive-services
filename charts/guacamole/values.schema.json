@@ -102,19 +102,85 @@
     },
     "ingress": {
       "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "ide/ingress.json"
+      },
       "properties": {
-        "enabled": { "type": "boolean" },
+        "enabled": {
+          "type": "boolean",
+          "default": true,
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "k8s.ingress"
+          }
+        },
+        "hostname": {
+          "type": "string",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
+          }
+        },
+        "userHostname": {
+          "type": "string",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
+          }
+        },
+        "ingressClassName": {
+          "type": "string",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{k8s.ingressClassName}}"
+          }
+        },
+        "useCertManager": {
+          "type": "boolean",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "k8s.useCertManager"
+          }
+        },
+        "certManagerClusterIssuer": {
+          "type": "string",
+          "default": "",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "k8s.certManagerClusterIssuer"
+          }
+        },
         "tls": { "type": "boolean" },
-        "ingressClassName": { "type": "string" },
-        "hostname": { "type": "string" },
-        "userHostname": { "type": "string" },
         "secretName": { "type": "string" }
       }
     },
     "route": {
       "type": "object",
       "properties": {
-        "enabled": { "type": "boolean" }
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "k8s.route"
+          }
+        },
+        "hostname": {
+          "type": "string",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-0.{{k8s.domain}}"
+          }
+        },
+        "userHostname": {
+          "type": "string",
+          "x-onyxia": {
+            "hidden": true,
+            "overwriteDefaultWith": "{{project.id}}-{{k8s.randomSubdomain}}-user.{{k8s.domain}}"
+          }
+        }
       }
     }
   }
