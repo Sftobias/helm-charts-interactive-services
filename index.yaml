@@ -260,6 +260,27 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/client-fl-1.0.0/client-fl-1.0.0.tgz
     version: 1.0.0
+  guacamole:
+  - apiVersion: v2
+    appVersion: 1.6.0
+    created: "2026-02-16T09:24:06.741394257Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Apache Guacamole remote desktop gateway (guacamole + guacd + postgres)
+    digest: a69696279baa458e1c7baf02b1919abf4d45775064a33c7ccc8e7fe9353b6b40
+    icon: https://guacamole.apache.org/images/guac-tricolor.svg
+    keywords:
+    - Guacamole
+    - Remote Desktop
+    - VNC
+    - RDP
+    name: guacamole
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/guacamole-0.1.0/guacamole-0.1.0.tgz
+    version: 0.1.0
   jupyter-python:
   - apiVersion: v2
     created: "2026-02-11T18:29:15.858183926Z"
@@ -1167,4 +1188,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-02-13T12:43:43.792699721Z"
+generated: "2026-02-16T09:24:06.741560088Z"
