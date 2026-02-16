@@ -38,6 +38,11 @@ spec:
           {{- end }}
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
+            - name: VNC_PW
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-secretvnc" (include "library-chart.fullname" .) }}
+                  key: VNC_PASSWORD
             - name: VNC_PASSWORD
               valueFrom:
                 secretKeyRef:
