@@ -10,7 +10,6 @@ service:
       version: "vncserver/lubuntu:latest"
 
 security:
-  password: "changeme"
   networkPolicy:
     enabled: false
     from: []
@@ -21,8 +20,6 @@ security:
 extraEnvVars: []
 
 lubuntu:
-  # VNC password used by the desktop container.
-  vncPassword: "changeme"
   # VNC server port.
   vncPort: 5901
 

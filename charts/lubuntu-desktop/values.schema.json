@@ -24,7 +24,6 @@
     "lubuntu": {
       "type": "object",
       "properties": {
-        "vncPassword": { "type": "string", "default": "changeme" },
         "vncPort": { "type": "integer", "default": 5901 }
       }
     },

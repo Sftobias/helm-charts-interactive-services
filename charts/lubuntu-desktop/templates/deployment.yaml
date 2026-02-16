@@ -13,7 +13,6 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/vnc-secret: {{ include (print $.Template.BasePath "/secret-vnc.yaml") . | sha256sum }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -46,30 +45,13 @@ spec:
           {{- end }}
           imagePullPolicy: {{ .Values.service.image.pullPolicy }}
           env:
-            - name: VNC_PW
-              valueFrom:
-                secretKeyRef:
-                  name: {{ printf "%s-secretvnc" (include "library-chart.fullname" .) }}
-                  key: VNC_PASSWORD
-            - name: VNC_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ printf "%s-secretvnc" (include "library-chart.fullname" .) }}
-                  key: VNC_PASSWORD
-            - name: PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ printf "%s-secretvnc" (include "library-chart.fullname" .) }}
-                  key: VNC_PASSWORD
             - name: VNC_PORT
               value: {{ .Values.lubuntu.vncPort | quote }}
+          {{- if .Values.extraEnvVars }}
           envFrom:
             - secretRef:
-                name: {{ include "library-chart.secretNameToken" . }}
-            {{- if .Values.extraEnvVars }}
-            - secretRef:
                 name: {{ include "library-chart.secretNameExtraEnv" . }}
-            {{- end }}
+          {{- end }}
           ports:
             - name: vnc
               containerPort: {{ .Values.lubuntu.vncPort }}
