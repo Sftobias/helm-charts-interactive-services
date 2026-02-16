@@ -48,7 +48,7 @@
                 "version": {
                   "title": "Name of the custom image",
                   "type": "string",
-                  "default": "inseefrlab/onyxia-jupyter-python:py3.13.5",
+                  "default": "harbor.cloud.eosc-siesta.eu/siesta/client-fl:latest",
                   "hidden": {
                     "value": false,
                     "path": "enabled",
