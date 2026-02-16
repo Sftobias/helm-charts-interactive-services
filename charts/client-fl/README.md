@@ -1,6 +1,6 @@
 # client-fl
 
-![Version: 1.0.8](https://img.shields.io/badge/Version-1.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Client for the federated learning application.
 
@@ -28,6 +28,7 @@ Client for the federated learning application.
 | certificates | object | `{}` |  |
 | chromadb.secretName | string | `""` |  |
 | clientConfig.dataPath | string | `""` |  |
+| clientConfig.datacenter | string | `""` |  |
 | clientConfig.endpoint | string | `""` |  |
 | clientConfig.modelFile | string | `""` |  |
 | clientConfig.modelPath | string | `""` |  |
@@ -39,6 +40,8 @@ Client for the federated learning application.
 | configEnvVars[2].value | string | `"{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.modelPath) }}"` |  |
 | configEnvVars[3].name | string | `"MODEL_FILE"` |  |
 | configEnvVars[3].value | string | `"{{ .clientConfig.modelFile }}"` |  |
+| configEnvVars[4].name | string | `"DATACENTER"` |  |
+| configEnvVars[4].value | string | `"{{ .clientConfig.datacenter }}"` |  |
 | coresite.secretName | string | `""` |  |
 | discovery.chromadb | bool | `true` |  |
 | discovery.hive | bool | `true` |  |
