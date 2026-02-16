@@ -263,6 +263,26 @@ entries:
   guacamole:
   - apiVersion: v2
     appVersion: 1.6.0
+    created: "2026-02-16T09:56:08.953962408Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Apache Guacamole remote desktop gateway (guacamole + guacd + postgres)
+    digest: ef005e00dc30fcb065639c6b261052cfccb4600943fb0c4cb9f1a15f77f0decd
+    icon: https://guacamole.apache.org/images/guac-tricolor.svg
+    keywords:
+    - Guacamole
+    - Remote Desktop
+    - VNC
+    - RDP
+    name: guacamole
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/guacamole-0.1.5/guacamole-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.6.0
     created: "2026-02-16T09:39:09.131605567Z"
     dependencies:
     - name: library-chart
@@ -1228,4 +1248,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc3-energy-forecasting-4.0.5/uc3-energy-forecasting-4.0.5.tgz
     version: 4.0.5
-generated: "2026-02-16T09:39:09.131757453Z"
+generated: "2026-02-16T09:56:08.95418652Z"
