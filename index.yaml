@@ -625,6 +625,26 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/library-chart-1.7.4/library-chart-1.7.4.tgz
     version: 1.7.4
+  lubuntu-desktop:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-02-16T12:22:30.281875807Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Lightweight Lubuntu desktop with VNC endpoint for Apache Guacamole
+    digest: 22998f1bbcbb925fce5df4f1c0b5dc8bbe56475a6c75aa3c0017fdaaf1094723
+    icon: https://upload.wikimedia.org/wikipedia/commons/6/6f/Lubuntu_logo.svg
+    keywords:
+    - Lubuntu
+    - VNC
+    - Desktop
+    name: lubuntu-desktop
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/lubuntu-desktop-0.1.0/lubuntu-desktop-0.1.0.tgz
+    version: 0.1.0
   thinclinc:
   - apiVersion: v2
     created: "2026-01-13T11:23:54.82818906Z"
@@ -1386,4 +1406,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/xfce-desktop-0.1.0/xfce-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-16T11:35:04.029745693Z"
+generated: "2026-02-16T12:22:30.282038353Z"
