@@ -244,10 +244,10 @@
       "type": "object",
       "form": true,
       "properties": {
-        "endpoint": {
-          "title": "ENDPOINT",
+        "uuid": {
+          "title": "UUID",
           "type": "string",
-          "description": "Federated Learning server endpoint URL",
+          "description": "Federated Learning client UUID",
           "default": ""
         },
         "dataPath": {

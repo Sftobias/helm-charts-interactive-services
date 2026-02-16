@@ -34,7 +34,7 @@ extraEnvVars: []
 
 # Client config exposed in Onyxia form.
 clientConfig:
-  endpoint: ""
+  uuid: ""
   dataPath: ""
   modelPath: ""
   modelFile: ""
@@ -42,8 +42,8 @@ clientConfig:
 
 # Chart-defined env vars, independent from extraEnvVars.
 configEnvVars:
-  - name: END_POINT
-    value: "{{ .clientConfig.endpoint }}"
+  - name: UUID
+    value: "{{ .clientConfig.uuid }}"
   - name: DATA_PATH
     value: "{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.dataPath) }}"
   - name: MODEL_PATH
