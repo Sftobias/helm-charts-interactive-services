@@ -20,6 +20,8 @@ spec:
   template:
     metadata:
       annotations:
+        kubectl.kubernetes.io/default-container: {{ .Chart.Name | quote }}
+        kubectl.kubernetes.io/default-logs-container: {{ .Chart.Name | quote }}
         {{- if (.Values.git).enabled }}
         checksum/git: {{ include (print $.Template.BasePath "/secret-git.yaml") . | sha256sum }}
         {{- end }}
