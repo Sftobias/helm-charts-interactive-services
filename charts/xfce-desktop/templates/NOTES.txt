@@ -1,0 +1,13 @@
+XFCE desktop deployed.
+
+Web preview (noVNC):
+  {{- if .Values.ingress.enabled }}
+  https://{{ .Values.ingress.hostname }}/
+  {{- else }}
+  kubectl -n {{ .Release.Namespace }} port-forward service/{{ include "library-chart.fullname" . }} 6901:{{ .Values.xfce.webPort }}
+  {{- end }}
+
+Apache Guacamole connection settings (VNC):
+  Hostname: {{ include "library-chart.fullname" . }}
+  Port: {{ .Values.xfce.vncPort }}
+  Password: value of xfce.vncPassword

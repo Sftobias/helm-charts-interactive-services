@@ -1,0 +1,15 @@
+apiVersion: v2
+name: xfce-desktop
+description: Lightweight XFCE desktop with VNC endpoint for Apache Guacamole
+icon: https://upload.wikimedia.org/wikipedia/commons/5/5f/Xfce_logo.svg
+keywords:
+  - XFCE
+  - VNC
+  - Desktop
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: library-chart
+    version: 1.7.9
+    repository: https://sftobias.github.io/helm-charts-interactive-services
