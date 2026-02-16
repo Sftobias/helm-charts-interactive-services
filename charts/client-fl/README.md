@@ -1,6 +1,6 @@
 # client-fl
 
-![Version: 1.0.7](https://img.shields.io/badge/Version-1.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.8](https://img.shields.io/badge/Version-1.0.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Client for the federated learning application.
 
@@ -34,9 +34,9 @@ Client for the federated learning application.
 | configEnvVars[0].name | string | `"END_POINT"` |  |
 | configEnvVars[0].value | string | `"{{ .clientConfig.endpoint }}"` |  |
 | configEnvVars[1].name | string | `"DATA_PATH"` |  |
-| configEnvVars[1].value | string | `"{{ .clientConfig.dataPath }}"` |  |
+| configEnvVars[1].value | string | `"{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.dataPath) }}"` |  |
 | configEnvVars[2].name | string | `"MODEL_PATH"` |  |
-| configEnvVars[2].value | string | `"{{ .clientConfig.modelPath }}"` |  |
+| configEnvVars[2].value | string | `"{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.modelPath) }}"` |  |
 | configEnvVars[3].name | string | `"MODEL_FILE"` |  |
 | configEnvVars[3].value | string | `"{{ .clientConfig.modelFile }}"` |  |
 | coresite.secretName | string | `""` |  |
