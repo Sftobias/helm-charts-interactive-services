@@ -1,0 +1,35 @@
+{{- if or .Values.autoscaling.enabled (not (.Values.global).suspend) }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+      protocol: TCP
+  selector:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: postgres
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "%s-postgres-hl" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+  clusterIP: None
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+      protocol: TCP
+  selector:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: postgres
+{{- end }}

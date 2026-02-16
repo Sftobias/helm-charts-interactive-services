@@ -1,0 +1,18 @@
+{{- if or .Values.autoscaling.enabled (not (.Values.global).suspend) }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "%s-guacd" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: guacd
+      port: 4822
+      targetPort: 4822
+      protocol: TCP
+  selector:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: guacd
+{{- end }}

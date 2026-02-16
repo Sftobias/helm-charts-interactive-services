@@ -1,0 +1,88 @@
+{{- if or .Values.autoscaling.enabled (not (.Values.global).suspend) }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+    app.kubernetes.io/component: guacamole
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        checksum/guacamole-properties: {{ include (print $.Template.BasePath "/configmap-guacamole-properties.yaml") . | sha256sum }}
+        checksum/postgres-secret: {{ include (print $.Template.BasePath "/secret-postgres.yaml") . | sha256sum }}
+        {{- if .Values.extraEnvVars }}
+        checksum/extraenv: {{ include (print $.Template.BasePath "/secret-extraenv.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: guacamole
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: guacamole
+          {{- if .Values.service.image.custom.enabled }}
+          image: {{ .Values.service.image.custom.version | quote }}
+          {{- else }}
+          image: {{ .Values.service.image.version | quote }}
+          {{- end }}
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: EXTENSIONS
+              value: {{ .Values.guacamole.extensions | quote }}
+            - name: GUACD_HOSTNAME
+              value: {{ printf "%s-guacd" (include "library-chart.fullname" .) }}
+          {{- if .Values.extraEnvVars }}
+          envFrom:
+            - secretRef:
+                name: {{ include "library-chart.secretNameExtraEnv" . }}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            {{- toYaml .Values.resources.guacamole | nindent 12 }}
+          volumeMounts:
+            - name: drive
+              mountPath: /drive
+            - name: guacamole-properties
+              mountPath: /etc/guacamole/guacamole.properties
+              subPath: guacamole.properties
+      volumes:
+        - name: drive
+          {{- if .Values.persistence.drive.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ printf "%s-guac-drive" (include "library-chart.fullname" .) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        - name: guacamole-properties
+          configMap:
+            name: {{ printf "%s-guacamole-properties" (include "library-chart.fullname" .) }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

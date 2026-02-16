@@ -1,0 +1,37 @@
+{{- if or .Values.autoscaling.enabled (not (.Values.global).suspend) }}
+{{- if .Values.persistence.drive.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-guac-drive" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.drive.accessMode }}
+  {{- if .Values.persistence.drive.storageClassName }}
+  storageClassName: {{ .Values.persistence.drive.storageClassName | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.drive.size }}
+---
+{{- end }}
+{{- if .Values.persistence.record.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-guac-record" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.record.accessMode }}
+  {{- if .Values.persistence.record.storageClassName }}
+  storageClassName: {{ .Values.persistence.record.storageClassName | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.record.size }}
+{{- end }}
+{{- end }}

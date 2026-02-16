@@ -1,0 +1,148 @@
+global:
+  suspend: false
+
+service:
+  image:
+    version: "guacamole/guacamole:latest"
+    pullPolicy: Always
+    custom:
+      enabled: false
+      version: "guacamole/guacamole:latest"
+
+security:
+  password: "changeme"
+  networkPolicy:
+    enabled: false
+    from: []
+  allowlist:
+    enabled: false
+    ip: "0.0.0.0/0"
+
+extraEnvVars: []
+
+postgres:
+  image: "postgres:13.4"
+  database: "guacamole_db"
+  username: "guacamole"
+  password: "guacamole"
+  pgdata: "/var/lib/postgresql/data/guacamole"
+
+
+guacd:
+  image: "linuxserver/guacd:latest"
+
+guacamole:
+  extensions: "auth-totp"
+
+persistence:
+  drive:
+    enabled: true
+    accessMode: ReadWriteMany
+    size: 2Gi
+    storageClassName: ""
+  record:
+    enabled: true
+    accessMode: ReadWriteMany
+    size: 5Gi
+    storageClassName: ""
+  postgres:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClassName: ""
+
+initdb:
+  enabled: true
+  backoffLimit: 6
+
+replicaCount: 1
+
+environment:
+  user: onyxia
+  group: users
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+kubernetes:
+  enabled: false
+  role: "view"
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 100
+
+securityContext: {}
+
+networking:
+  type: ClusterIP
+  clusterIP: ""
+  service:
+    port: 80
+    targetPort: 8080
+  user:
+    enabled: false
+    port: 5000
+    ports: []
+
+ingress:
+  enabled: true
+  tls: true
+  ingressClassName: "nginx"
+  annotations: []
+  hostname: deployments.cloud.eosc-siesta.eu
+  userHostname: chart-example-user.local
+  secretName: deployments.cloud.eosc-siesta.eu-tls
+  hosts:
+    - deployments.cloud.eosc-siesta.eu
+  useCertManager: false
+  certManagerClusterIssuer: ""
+  useTlsSecret: true
+
+route:
+  enabled: false
+  annotations: []
+  hostname: chart-example.local
+  userHostname: chart-example-user.local
+  tls:
+    termination: edge
+  wildcardPolicy: None
+
+resources:
+  guacamole: {}
+  guacd: {}
+  postgres: {}
+  initdb: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+userPreferences:
+  darkMode: false
+  language: "en"
+
+openshiftSCC:
+  enabled: false
+  scc: ""
+
+message:
+  fr: ""
+  en: ""
+
+repository:
+  configMapName: ""
+  pipRepository: ""
+  condaRepository: ""
+  rRepository: ""
+  packageManagerUrl: ""

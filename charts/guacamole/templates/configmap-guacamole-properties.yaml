@@ -1,0 +1,18 @@
+{{- if or .Values.autoscaling.enabled (not (.Values.global).suspend) }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-guacamole-properties" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+data:
+  guacamole.properties: |
+    guacd-hostname: {{ printf "%s-guacd" (include "library-chart.fullname" .) }}
+    guacd-port: 4822
+
+    postgresql-hostname: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+    postgresql-port: 5432
+    postgresql-database: {{ .Values.postgres.database }}
+    postgresql-username: {{ .Values.postgres.username }}
+    postgresql-password: {{ .Values.postgres.password }}
+{{- end }}

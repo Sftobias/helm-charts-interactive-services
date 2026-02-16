@@ -1,0 +1,16 @@
+apiVersion: v2
+name: guacamole
+description: Apache Guacamole remote desktop gateway (guacamole + guacd + postgres)
+icon: https://guacamole.apache.org/images/guac-tricolor.svg
+keywords:
+  - Guacamole
+  - Remote Desktop
+  - VNC
+  - RDP
+type: application
+version: 0.1.0
+appVersion: "1.6.0"
+dependencies:
+  - name: library-chart
+    version: 1.7.9
+    repository: https://sftobias.github.io/helm-charts-interactive-services

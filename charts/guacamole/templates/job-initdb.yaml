@@ -1,0 +1,85 @@
+{{- if and (or .Values.autoscaling.enabled (not (.Values.global).suspend)) .Values.initdb.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ printf "%s-initdb" (include "library-chart.fullname" .) }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: {{ .Values.initdb.backoffLimit }}
+  template:
+    metadata:
+      labels:
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: initdb
+    spec:
+      restartPolicy: OnFailure
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      volumes:
+        - name: work
+          emptyDir: {}
+      initContainers:
+        - name: generate-sql
+          {{- if .Values.service.image.custom.enabled }}
+          image: {{ .Values.service.image.custom.version | quote }}
+          {{- else }}
+          image: {{ .Values.service.image.version | quote }}
+          {{- end }}
+          imagePullPolicy: Always
+          command: ["/bin/sh", "-lc"]
+          args:
+            - |
+              set -e
+              test -x /opt/guacamole/bin/initdb.sh
+              /opt/guacamole/bin/initdb.sh --postgresql > /work/initdb.sql
+          volumeMounts:
+            - name: work
+              mountPath: /work
+      containers:
+        - name: apply-sql
+          image: {{ .Values.postgres.image | quote }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PGHOST
+              value: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+            - name: PGPORT
+              value: "5432"
+            - name: PGDATABASE
+              value: {{ .Values.postgres.database | quote }}
+            - name: PGUSER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+                  key: POSTGRES_USER
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-postgres" (include "library-chart.fullname" .) }}
+                  key: POSTGRES_PASSWORD
+          command: ["/bin/sh", "-lc"]
+          args:
+            - |
+              set -e
+              until pg_isready -h "$PGHOST" -p "$PGPORT" -U "$PGUSER" -d "$PGDATABASE"; do
+                sleep 2
+              done
+
+              if psql -tAc "SELECT 1 FROM information_schema.tables WHERE table_schema='public' AND table_name='guacamole_user'" | grep -q 1; then
+                echo "Guacamole schema already present, skipping init"
+                exit 0
+              fi
+
+              psql -v ON_ERROR_STOP=1 -f /work/initdb.sql
+          volumeMounts:
+            - name: work
+              mountPath: /work
+          resources:
+            {{- toYaml .Values.resources.initdb | nindent 12 }}
+{{- end }}
