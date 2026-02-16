@@ -38,26 +38,6 @@ spec:
               containerPort: 4822
           resources:
             {{- toYaml .Values.resources.guacd | nindent 12 }}
-          volumeMounts:
-            - name: drive
-              mountPath: /drive
-            - name: record
-              mountPath: /record
-      volumes:
-        - name: drive
-          {{- if .Values.persistence.drive.enabled }}
-          persistentVolumeClaim:
-            claimName: {{ printf "%s-guac-drive" (include "library-chart.fullname" .) }}
-          {{- else }}
-          emptyDir: {}
-          {{- end }}
-        - name: record
-          {{- if .Values.persistence.record.enabled }}
-          persistentVolumeClaim:
-            claimName: {{ printf "%s-guac-record" (include "library-chart.fullname" .) }}
-          {{- else }}
-          emptyDir: {}
-          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -9,6 +9,9 @@ metadata:
 spec:
   serviceName: {{ printf "%s-postgres-hl" (include "library-chart.fullname" .) }}
   replicas: 1
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Delete
+    whenScaled: Delete
   selector:
     matchLabels:
       app.kubernetes.io/instance: {{ .Release.Name }}
