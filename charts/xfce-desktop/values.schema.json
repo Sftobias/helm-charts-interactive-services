@@ -29,6 +29,39 @@
         "webPort": { "type": "integer", "default": 6901 }
       }
     },
+    "persistence": {
+      "type": "object",
+      "x-onyxia": {
+        "overwriteSchemaWith": "ide/persistence.json"
+      },
+      "properties": {
+        "enabled": {
+          "title": "Create a persistent volume",
+          "type": "boolean",
+          "default": true
+        },
+        "size": {
+          "title": "Persistent volume size",
+          "type": "string",
+          "default": "10Gi",
+          "form": true,
+          "render": "slider",
+          "sliderMin": 1,
+          "sliderMax": 100,
+          "sliderStep": 1,
+          "sliderUnit": "Gi",
+          "x-onyxia": {
+            "overwriteDefaultWith": "region.resources.disk",
+            "useRegionSliderConfig": "disk"
+          },
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        }
+      }
+    },
     "extraEnvVars": {
       "title": "Environment variables available within your service",
       "type": "array",

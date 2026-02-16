@@ -94,9 +94,11 @@ route:
 resources: {}
 
 persistence:
-  enabled: false
+  enabled: true
+  # storageClass: "cinder-sci"
   accessMode: ReadWriteOnce
   size: 10Gi
+  # existingClaim: ""
 
 nodeSelector:
   node.kubernetes.io/floating-ip: ""
