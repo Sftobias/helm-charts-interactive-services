@@ -32,7 +32,7 @@ guacd:
   image: "linuxserver/guacd:latest"
 
 guacamole:
-  extensions: "auth-totp"
+  extensions: ""
 
 persistence:
   drive:
