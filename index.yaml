@@ -1291,6 +1291,25 @@ entries:
   xfce-desktop:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-02-16T11:22:25.081604638Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Lightweight XFCE desktop with VNC endpoint for Apache Guacamole
+    digest: 06a2758e350974383796f9f3443d45e2ae20030d42e68085ced9d6f8ab002722
+    icon: https://upload.wikimedia.org/wikipedia/commons/5/5f/Xfce_logo.svg
+    keywords:
+    - XFCE
+    - VNC
+    - Desktop
+    name: xfce-desktop
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/xfce-desktop-0.1.3/xfce-desktop-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-02-16T11:05:06.702396274Z"
     dependencies:
     - name: library-chart
@@ -1327,4 +1346,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/xfce-desktop-0.1.0/xfce-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-16T11:05:06.702577844Z"
+generated: "2026-02-16T11:22:25.081765688Z"
