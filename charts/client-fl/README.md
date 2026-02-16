@@ -1,6 +1,6 @@
 # client-fl
 
-![Version: 1.0.9](https://img.shields.io/badge/Version-1.0.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.10](https://img.shields.io/badge/Version-1.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Client for the federated learning application.
 
@@ -29,11 +29,11 @@ Client for the federated learning application.
 | chromadb.secretName | string | `""` |  |
 | clientConfig.dataPath | string | `""` |  |
 | clientConfig.datacenter | string | `""` |  |
-| clientConfig.endpoint | string | `""` |  |
 | clientConfig.modelFile | string | `""` |  |
 | clientConfig.modelPath | string | `""` |  |
-| configEnvVars[0].name | string | `"END_POINT"` |  |
-| configEnvVars[0].value | string | `"{{ .clientConfig.endpoint }}"` |  |
+| clientConfig.uuid | string | `""` |  |
+| configEnvVars[0].name | string | `"UUID"` |  |
+| configEnvVars[0].value | string | `"{{ .clientConfig.uuid }}"` |  |
 | configEnvVars[1].name | string | `"DATA_PATH"` |  |
 | configEnvVars[1].value | string | `"{{ printf \"/home/%s/work/s3/%s/%s\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (trimAll \"/\" .clientConfig.dataPath) }}"` |  |
 | configEnvVars[2].name | string | `"MODEL_PATH"` |  |
