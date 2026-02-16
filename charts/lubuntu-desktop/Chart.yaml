@@ -1,0 +1,15 @@
+apiVersion: v2
+name: lubuntu-desktop
+description: Lightweight Lubuntu desktop with VNC endpoint for Apache Guacamole
+icon: https://upload.wikimedia.org/wikipedia/commons/6/6f/Lubuntu_logo.svg
+keywords:
+  - Lubuntu
+  - VNC
+  - Desktop
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: library-chart
+    version: 1.7.9
+    repository: https://sftobias.github.io/helm-charts-interactive-services

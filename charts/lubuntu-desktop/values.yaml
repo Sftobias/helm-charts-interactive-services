@@ -1,0 +1,137 @@
+global:
+  suspend: false
+
+service:
+  image:
+    version: "vncserver/lubuntu:latest"
+    pullPolicy: IfNotPresent
+    custom:
+      enabled: false
+      version: "vncserver/lubuntu:latest"
+
+security:
+  password: "changeme"
+  networkPolicy:
+    enabled: false
+    from: []
+  allowlist:
+    enabled: false
+    ip: "0.0.0.0/0"
+
+extraEnvVars: []
+
+lubuntu:
+  # VNC password used by the desktop container.
+  vncPassword: "changeme"
+  # Typical defaults used by VNC desktop images.
+  vncPort: 5901
+  webPort: 6901
+
+environment:
+  user: onyxia
+  group: users
+
+replicaCount: 1
+
+imagePullSecrets:
+  - name: harbor-robot-secret
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+kubernetes:
+  enabled: false
+  role: "view"
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 100
+
+securityContext: {}
+
+networking:
+  type: ClusterIP
+  clusterIP: None
+  service:
+    # noVNC web UI
+    port: 6901
+    targetPort: 6901
+  # VNC port for Guacamole.
+  user:
+    enabled: true
+    port: 5901
+    ports: []
+
+ingress:
+  enabled: true
+  tls: true
+  ingressClassName: "nginx"
+  annotations: []
+  hostname: deployments.cloud.eosc-siesta.eu
+  userHostname: chart-example-user.local
+  secretName: deployments.cloud.eosc-siesta.eu-tls
+  hosts:
+    - deployments.cloud.eosc-siesta.eu
+  useCertManager: false
+  certManagerClusterIssuer: ""
+  useTlsSecret: true
+
+route:
+  enabled: false
+  annotations: []
+  hostname: chart-example.local
+  userHostname: chart-example-user.local
+  tls:
+    termination: edge
+  wildcardPolicy: None
+
+resources: {}
+
+persistence:
+  enabled: true
+  # storageClass: "cinder-sci"
+  accessMode: ReadWriteOnce
+  size: 10Gi
+  # existingClaim: ""
+
+nodeSelector:
+  node.kubernetes.io/floating-ip: ""
+
+tolerations: []
+affinity: {}
+
+userPreferences:
+  darkMode: false
+  language: "en"
+
+autoscaling:
+  enabled: false
+
+openshiftSCC:
+  enabled: false
+  scc: ""
+
+proxy:
+  enabled: false
+  noProxy: ""
+  httpProxy: ""
+  httpsProxy: ""
+
+certificates: {}
+
+message:
+  fr: ""
+  en: ""
+
+repository:
+  pipRepository: ''
+  configMapName: ""
+  condaRepository: ""
+  rRepository: ""
+  packageManagerUrl: ""

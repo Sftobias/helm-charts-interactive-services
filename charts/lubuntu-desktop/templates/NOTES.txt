@@ -1,0 +1,13 @@
+Lubuntu desktop deployed.
+
+Web preview (noVNC):
+  {{- if .Values.ingress.enabled }}
+  https://{{ .Values.ingress.hostname }}/
+  {{- else }}
+  kubectl -n {{ .Release.Namespace }} port-forward service/{{ include "library-chart.fullname" . }} 6901:{{ .Values.lubuntu.webPort }}
+  {{- end }}
+
+Apache Guacamole connection settings (VNC):
+  Hostname: {{ include "library-chart.fullname" . }}
+  Port: {{ .Values.lubuntu.vncPort }}
+  Password: value of lubuntu.vncPassword
