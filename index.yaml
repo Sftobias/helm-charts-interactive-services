@@ -121,6 +121,26 @@ entries:
     version: 2.3.21
   client-fl:
   - apiVersion: v2
+    created: "2026-02-17T11:51:04.23411881Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Client for the federated learning application.
+    digest: 96b7beb7c4aa798e06bf33f4469c6d0946957155c4d83e784792df0fd7d46c48
+    home: https://docs.ai4os.eu/en/latest/howtos/train/federated-flower.html
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/flower-client.png
+    keywords:
+    - Federated Learning
+    - Python
+    name: client-fl
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/client-fl-1.0.13/client-fl-1.0.13.tgz
+    version: 1.0.13
+  - apiVersion: v2
     created: "2026-02-16T15:47:30.37473618Z"
     dependencies:
     - name: library-chart
@@ -1582,4 +1602,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/xfce-desktop-0.1.0/xfce-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-16T15:47:30.549736171Z"
+generated: "2026-02-17T11:51:04.234628572Z"
