@@ -124,6 +124,15 @@ The JupyterLab IDE with Python and a collection of standard data science package
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| sharedS3.accessKey | string | `""` |  |
+| sharedS3.bucket | string | `"user-235db23a-2ed7-44da-89a1-7427ac0358d7"` |  |
+| sharedS3.defaultRegion | string | `"us-east-1"` |  |
+| sharedS3.enabled | bool | `false` |  |
+| sharedS3.endpoint | string | `"https://minio-console.cloud.eosc-siesta.eu"` |  |
+| sharedS3.mountPath | string | `""` |  |
+| sharedS3.pathStyleAccess | bool | `true` |  |
+| sharedS3.prefix | string | `""` |  |
+| sharedS3.secretKey | string | `""` |  |
 | startupProbe.failureThreshold | int | `60` |  |
 | startupProbe.initialDelaySeconds | int | `10` |  |
 | startupProbe.periodSeconds | int | `10` |  |
