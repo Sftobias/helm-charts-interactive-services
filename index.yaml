@@ -121,6 +121,26 @@ entries:
     version: 2.3.21
   client-fl:
   - apiVersion: v2
+    created: "2026-02-18T12:12:39.411340211Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Client for the federated learning application.
+    digest: b7e3f5277a1cbd61f7c1ece718d7b76ac161894903f2d1ebe8daebccc87bcbca
+    home: https://docs.ai4os.eu/en/latest/howtos/train/federated-flower.html
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/flower-client.png
+    keywords:
+    - Federated Learning
+    - Python
+    name: client-fl
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/client-fl-1.0.15/client-fl-1.0.15.tgz
+    version: 1.0.15
+  - apiVersion: v2
     created: "2026-02-18T11:59:00.428185025Z"
     dependencies:
     - name: library-chart
@@ -562,6 +582,28 @@ entries:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/guacamole-0.1.0/guacamole-0.1.0.tgz
     version: 0.1.0
   jupyter-python:
+  - apiVersion: v2
+    created: "2026-02-18T12:12:39.566676712Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: The JupyterLab IDE with Python and a collection of standard data
+      science packages.
+    digest: 57f33e07a1462bc47e69c60a09c9f1b71f542055982731859738760055484c57
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-python
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/jupyter-python-2.3.30/jupyter-python-2.3.30.tgz
+    version: 2.3.30
   - apiVersion: v2
     created: "2026-02-18T11:59:00.577971382Z"
     dependencies:
@@ -1266,6 +1308,23 @@ entries:
     version: 2.3.33
   uc1-agents-model:
   - apiVersion: v2
+    created: "2026-02-18T12:12:39.743307693Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Agent-based epidemic simulation model designed to study the dynamics
+      of vector-borne diseases in spatially explicit environments.
+    digest: e7fbca2b18253f07e4c2fb564264d7043010e283e128be2a0c1f40e50348a6ff
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/uc1.png
+    keywords:
+    - Ubuntu
+    name: uc1-agents-model
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc1-agents-model-1.0.25/uc1-agents-model-1.0.25.tgz
+    version: 1.0.25
+  - apiVersion: v2
     created: "2026-02-18T12:03:56.209812699Z"
     dependencies:
     - name: library-chart
@@ -1717,4 +1776,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/xfce-desktop-0.1.0/xfce-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-18T12:03:56.210099233Z"
+generated: "2026-02-18T12:12:39.74363505Z"
