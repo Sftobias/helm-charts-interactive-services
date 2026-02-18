@@ -211,3 +211,14 @@ message:
 
 repository:
   pipRepository: ''
+
+sharedS3:
+  enabled: false
+  endpoint: "https://minio-console.cloud.eosc-siesta.eu"
+  bucket: "user-235db23a-2ed7-44da-89a1-7427ac0358d7"
+  prefix: ""
+  defaultRegion: us-east-1
+  pathStyleAccess: true
+  mountPath: ""
+  accessKey: ""
+  secretKey: ""

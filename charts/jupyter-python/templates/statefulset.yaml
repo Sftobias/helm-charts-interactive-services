@@ -26,6 +26,9 @@ spec:
         {{- if (.Values.s3).enabled }}
         checksum/s3: {{ include (print $.Template.BasePath "/secret-s3.yaml") . | sha256sum }}
         {{- end }}
+        {{- if (.Values.sharedS3).enabled }}
+        checksum/shared-s3: {{ include (print $.Template.BasePath "/secret-shared-s3.yaml") . | sha256sum }}
+        {{- end }}
         {{- if (.Values.vault).enabled }}
         checksum/vault: {{ include (print $.Template.BasePath "/secret-vault.yaml") . | sha256sum }}
         {{- end }}
@@ -93,6 +96,12 @@ spec:
         {{- if (.Values.s3).enabled }}
         - name: s3-mount
           emptyDir: {}
+        {{- end }}
+        {{- if (.Values.sharedS3).enabled }}
+        - name: shared-s3-mount
+          emptyDir: {}
+        {{- end }}
+        {{- if or (.Values.s3).enabled (.Values.sharedS3).enabled }}
         - name: dev-fuse
           hostPath:
             path: /dev/fuse
@@ -229,6 +238,61 @@ spec:
             - name: dev-fuse
               mountPath: /dev/fuse
         {{- end }}
+        {{- if (.Values.sharedS3).enabled }}
+        - name: shared-s3-mounter
+          image: rclone/rclone:1.66
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add: ["SYS_ADMIN"]
+          envFrom:
+            - secretRef:
+                name: {{ printf "%s-secret-shared-s3" (include "library-chart.fullname" .) }}
+          env:
+            - name: RCLONE_CONFIG_SHARED_TYPE
+              value: s3
+            - name: RCLONE_CONFIG_SHARED_PROVIDER
+              value: Minio
+            - name: RCLONE_CONFIG_SHARED_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-secret-shared-s3" (include "library-chart.fullname" .) }}
+                  key: SHARED_S3_ACCESS_KEY
+            - name: RCLONE_CONFIG_SHARED_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-secret-shared-s3" (include "library-chart.fullname" .) }}
+                  key: SHARED_S3_SECRET_KEY
+            - name: RCLONE_CONFIG_SHARED_ENDPOINT
+              value: {{ .Values.sharedS3.endpoint | quote }}
+            - name: RCLONE_CONFIG_SHARED_REGION
+              value: {{ .Values.sharedS3.defaultRegion | quote }}
+            - name: RCLONE_CONFIG_SHARED_FORCE_PATH_STYLE
+              value: {{ .Values.sharedS3.pathStyleAccess | quote }}
+          command: ["/bin/sh","-c"]
+          args:
+            - |
+              set -e
+              echo "Mounting shared S3..."
+              mkdir -p /mnt/shared-s3
+              rclone mount shared:{{ .Values.sharedS3.bucket }}{{- if .Values.sharedS3.prefix }}/{{ .Values.sharedS3.prefix }}{{- end }} /mnt/shared-s3/remote \
+                --allow-other \
+                --allow-non-empty \
+                --dir-cache-time 1m \
+                --poll-interval 1m \
+                --vfs-cache-mode writes \
+                --vfs-cache-max-age 1h \
+                --vfs-read-chunk-size 64M \
+                --vfs-read-chunk-size-limit 1G
+          volumeMounts:
+            - name: shared-s3-mount
+              mountPath: /mnt/shared-s3
+              mountPropagation: Bidirectional
+            - name: dev-fuse
+              mountPath: /dev/fuse
+        {{- end }}
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -344,6 +408,12 @@ spec:
             {{- if (.Values.s3).enabled }}
             - name: s3-mount
               mountPath: {{ .Values.s3.mountPath | default (printf "/home/%s/work/s3" .Values.environment.user) }}
+              subPath: remote
+              mountPropagation: HostToContainer
+            {{- end }}
+            {{- if (.Values.sharedS3).enabled }}
+            - name: shared-s3-mount
+              mountPath: {{ .Values.sharedS3.mountPath | default (printf "/home/%s/work/sharedData" .Values.environment.user) }}
               subPath: remote
               mountPropagation: HostToContainer
             {{- end }}

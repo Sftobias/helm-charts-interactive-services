@@ -446,6 +446,98 @@
         }
       }
     },
+    "sharedS3": {
+      "title": "Shared S3",
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "title": "Enable shared S3 mount",
+          "type": "boolean",
+          "default": false
+        },
+        "endpoint": {
+          "title": "Shared S3 endpoint URL",
+          "type": "string",
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        },
+        "bucket": {
+          "title": "Bucket name",
+          "type": "string",
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        },
+        "prefix": {
+          "title": "Prefix",
+          "type": "string",
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        },
+        "defaultRegion": {
+          "title": "Default region",
+          "type": "string",
+          "default": "us-east-1",
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        },
+        "pathStyleAccess": {
+          "title": "Path-style access",
+          "type": "boolean",
+          "default": true,
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        },
+        "mountPath": {
+          "title": "Mount path",
+          "type": "string",
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        },
+        "accessKey": {
+          "title": "Access Key",
+          "type": "string",
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        },
+        "secretKey": {
+          "title": "Secret Key",
+          "type": "string",
+          "render": "password",
+          "default": "",
+          "hidden": {
+            "value": false,
+            "path": "enabled",
+            "isPathRelative": true
+          }
+        }
+      }
+    },
     "git": {
       "title": "Git access",
       "type": "object",
