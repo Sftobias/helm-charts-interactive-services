@@ -156,7 +156,7 @@ spec:
               echo "Mounting S3..."
               mkdir -p /mnt/s3
               # Monta bucket/prefix en /mnt/s3
-              rclone mount s3:{{ .Values.s3.bucket }}{{- $s3Prefix := (default .Values.s3.workingDirectoryPath .Values.s3.prefix) | trimAll "/" }}{{- if $s3Prefix }}/{{ $s3Prefix }}{{- end }} /mnt/s3/remote \
+              rclone mount s3:{{ .Values.s3.bucket }}{{- if .Values.s3.prefix }}/{{ .Values.s3.prefix }}{{- end }} /mnt/s3/remote \
                 --allow-other \
                 --allow-non-empty \
                 --dir-cache-time 1m \
@@ -285,9 +285,10 @@ spec:
               subPath: work
               name: home
             {{- if (.Values.s3).enabled }}
+            {{- $s3ServiceSubPath := (default .Values.s3.prefix .Values.s3.workingDirectoryPath) | trimAll "/" }}
             - name: s3-mount
               mountPath: {{ printf "/home/%s/work/s3" .Values.environment.user }}
-              subPath: remote
+              subPath: remote{{- if $s3ServiceSubPath }}/{{ $s3ServiceSubPath }}{{- end }}
               mountPropagation: HostToContainer
             {{- end }}
             {{- if (.Values.sharedS3).enabled }}
