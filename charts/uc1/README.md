@@ -1,6 +1,6 @@
 # uc1-agents-model
 
-![Version: 1.0.23](https://img.shields.io/badge/Version-1.0.23-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.24](https://img.shields.io/badge/Version-1.0.24-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Agent-based epidemic simulation model designed to study the dynamics of vector-borne diseases in spatially explicit environments.
 
@@ -21,21 +21,21 @@ Agent-based epidemic simulation model designed to study the dynamics of vector-b
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | certificates | object | `{}` |  |
 | configEnvVars[0].name | string | `"FILE_MODEL"` |  |
-| configEnvVars[0].value | string | `"{{ printf \"/home/%s/work/s3/uc1_data/model_SIESTA_0_13012025.json\" .environment.user }}"` |  |
+| configEnvVars[0].value | string | `"{{ printf \"/home/%s/work/s3/inputs/model_SIESTA_0_13012025.json\" .environment.user }}"` |  |
 | configEnvVars[10].name | string | `"IN_DATA_TT_UNI"` |  |
 | configEnvVars[10].value | string | `"{{ printf \"/home/%s/work/sharedData/uc1_data/tt_universidad.csv\" .environment.user }}"` |  |
 | configEnvVars[11].name | string | `"IN_DATA_POP"` |  |
 | configEnvVars[11].value | string | `"{{ printf \"/home/%s/work/sharedData/uc1_data/population/\" .environment.user }}"` |  |
 | configEnvVars[12].name | string | `"OUT_PREPROCESSOR"` |  |
-| configEnvVars[12].value | string | `"{{ printf \"/home/%s/work/s3/uc1_data/outputs/out_data_preprocessor\" .environment.user }}"` |  |
+| configEnvVars[12].value | string | `"{{ printf \"/home/%s/work/s3/outputs/out_data_preprocessor\" .environment.user }}"` |  |
 | configEnvVars[13].name | string | `"OUT_PREVIOUS_PARAMETRIZATION"` |  |
-| configEnvVars[13].value | string | `"{{ printf \"/home/%s/work/s3/uc1_data/outputs/out_data_previous_parametrization\" .environment.user }}"` |  |
+| configEnvVars[13].value | string | `"{{ printf \"/home/%s/work/s3/outputs/out_data_previous_parametrization\" .environment.user }}"` |  |
 | configEnvVars[14].name | string | `"OUT_DAY_SIMULATOR"` |  |
-| configEnvVars[14].value | string | `"{{ printf \"/home/%s/work/s3/uc1_data/outputs/out_data_day_simulator\" .environment.user }}"` |  |
+| configEnvVars[14].value | string | `"{{ printf \"/home/%s/work/s3/outputs/out_data_day_simulator\" .environment.user }}"` |  |
 | configEnvVars[15].name | string | `"OUT_DATA_PREPARATION_STEP_SIMULATOR"` |  |
-| configEnvVars[15].value | string | `"{{ printf \"/home/%s/work/s3/uc1_data/outputs/out_data_preparation_step_simulator\" .environment.user }}"` |  |
+| configEnvVars[15].value | string | `"{{ printf \"/home/%s/work/s3/outputs/out_data_preparation_step_simulator\" .environment.user }}"` |  |
 | configEnvVars[16].name | string | `"OUT_STEP_SIMULATOR"` |  |
-| configEnvVars[16].value | string | `"{{ printf \"/home/%s/work/s3/uc1_data/outputs/out_data_step_simulator\" .environment.user }}"` |  |
+| configEnvVars[16].value | string | `"{{ printf \"/home/%s/work/s3/outputs/out_data_step_simulator\" .environment.user }}"` |  |
 | configEnvVars[1].name | string | `"FILE_DENSITIES"` |  |
 | configEnvVars[1].value | string | `"{{ printf \"/home/%s/work/sharedData/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user }}"` |  |
 | configEnvVars[2].name | string | `"IN_DATA_CELLS"` |  |
