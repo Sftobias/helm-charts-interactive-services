@@ -30,39 +30,39 @@ extraEnvVars: []
 # They are mounted in addition to extraEnvVars.
 configEnvVars:
   - name: FILE_MODEL
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/model_SIESTA_0_13012025.json\" .environment.user }}"
   - name: FILE_DENSITIES
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user }}"
   - name: IN_DATA_CELLS
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_cells/celdas_marzo_2020.shp\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/ine_cells/celdas_marzo_2020.shp\" .environment.user }}"
   - name: IN_DATA_MOB
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/ine_mobility/ine_data.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/ine_mobility/ine_data.csv\" .environment.user }}"
   - name: IN_DATA_TRANS
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/means_transport_per_mun_type_norm.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/means_transport_per_mun_type_norm.csv\" .environment.user }}"
   - name: IN_DATA_TRIPS_HOURLY
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/n_trips_per_hour_des.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/n_trips_per_hour_des.csv\" .environment.user }}"
   - name: IN_DATA_TRIPS
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/probs_by_age_ntrips.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/probs_by_age_ntrips.csv\" .environment.user }}"
   - name: IN_DATA_CON_COMPLETO
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_continua_completo.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/tt_continua_completo.csv\" .environment.user }}"
   - name: IN_DATA_CON_PARCIAL
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_continua_parcial.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/tt_continua_parcial.csv\" .environment.user }}"
   - name: IN_DATA_PARTIDA_COMPLETO
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_partida_completo.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/tt_partida_completo.csv\" .environment.user }}"
   - name: IN_DATA_TT_UNI
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/tt_universidad.csv\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/tt_universidad.csv\" .environment.user }}"
   - name: IN_DATA_POP
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/population/\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/population/\" .environment.user }}"
   - name: OUT_PREPROCESSOR
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_preprocessor\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/outputs/out_data_preprocessor\" .environment.user }}"
   - name: OUT_PREVIOUS_PARAMETRIZATION
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_previous_parametrization\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/outputs/out_data_previous_parametrization\" .environment.user }}"
   - name: OUT_DAY_SIMULATOR
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_day_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/outputs/out_data_day_simulator\" .environment.user }}"
   - name: OUT_DATA_PREPARATION_STEP_SIMULATOR
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_preparation_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/outputs/out_data_preparation_step_simulator\" .environment.user }}"
   - name: OUT_STEP_SIMULATOR
-    value: "{{ printf \"/home/%s/work/s3/%s/uc1_data/outputs/out_data_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) }}"
+    value: "{{ printf \"/home/%s/work/sharedData/uc1_data/outputs/out_data_step_simulator\" .environment.user }}"
 
 
 environment:
@@ -214,7 +214,7 @@ repository:
 
 sharedS3:
   enabled: false
-  endpoint: "https://minio-console.cloud.eosc-siesta.eu"
+  endpoint: "https://minio.cloud.eosc-siesta.eu"
   bucket: "user-235db23a-2ed7-44da-89a1-7427ac0358d7"
   prefix: ""
   defaultRegion: us-east-1

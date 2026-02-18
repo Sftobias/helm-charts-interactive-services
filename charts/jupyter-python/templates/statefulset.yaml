@@ -407,7 +407,7 @@ spec:
               name: home
             {{- if (.Values.s3).enabled }}
             - name: s3-mount
-              mountPath: {{ .Values.s3.mountPath | default (printf "/home/%s/work/s3" .Values.environment.user) }}
+              mountPath: {{ printf "/home/%s/work/s3" .Values.environment.user }}
               subPath: remote
               mountPropagation: HostToContainer
             {{- end }}
