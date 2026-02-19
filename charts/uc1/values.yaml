@@ -30,7 +30,7 @@ extraEnvVars: []
 # They are mounted in addition to extraEnvVars.
 configEnvVars:
   - name: FILE_MODEL
-    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
   - name: FILE_DENSITIES
     value: "{{ printf \"/home/%s/work/sharedData/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user }}"
   - name: IN_DATA_CELLS
@@ -54,15 +54,15 @@ configEnvVars:
   - name: IN_DATA_POP
     value: "{{ printf \"/home/%s/work/sharedData/uc1_data/population/\" .environment.user }}"
   - name: OUT_PREPROCESSOR
-    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preprocessor\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preprocessor\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
   - name: OUT_PREVIOUS_PARAMETRIZATION
-    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_previous_parametrization\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_previous_parametrization\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
   - name: OUT_DAY_SIMULATOR
-    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_day_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_day_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
   - name: OUT_DATA_PREPARATION_STEP_SIMULATOR
-    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preparation_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preparation_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
   - name: OUT_STEP_SIMULATOR
-    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
 
 
 environment:

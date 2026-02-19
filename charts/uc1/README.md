@@ -21,21 +21,21 @@ Agent-based epidemic simulation model designed to study the dynamics of vector-b
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | certificates | object | `{}` |  |
 | configEnvVars[0].name | string | `"FILE_MODEL"` |  |
-| configEnvVars[0].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"` |  |
+| configEnvVars[0].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"` |  |
 | configEnvVars[10].name | string | `"IN_DATA_TT_UNI"` |  |
 | configEnvVars[10].value | string | `"{{ printf \"/home/%s/work/sharedData/uc1_data/tt_universidad.csv\" .environment.user }}"` |  |
 | configEnvVars[11].name | string | `"IN_DATA_POP"` |  |
 | configEnvVars[11].value | string | `"{{ printf \"/home/%s/work/sharedData/uc1_data/population/\" .environment.user }}"` |  |
 | configEnvVars[12].name | string | `"OUT_PREPROCESSOR"` |  |
-| configEnvVars[12].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preprocessor\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"` |  |
+| configEnvVars[12].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preprocessor\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"` |  |
 | configEnvVars[13].name | string | `"OUT_PREVIOUS_PARAMETRIZATION"` |  |
-| configEnvVars[13].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_previous_parametrization\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"` |  |
+| configEnvVars[13].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_previous_parametrization\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"` |  |
 | configEnvVars[14].name | string | `"OUT_DAY_SIMULATOR"` |  |
-| configEnvVars[14].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_day_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"` |  |
+| configEnvVars[14].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_day_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"` |  |
 | configEnvVars[15].name | string | `"OUT_DATA_PREPARATION_STEP_SIMULATOR"` |  |
-| configEnvVars[15].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preparation_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"` |  |
+| configEnvVars[15].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_preparation_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"` |  |
 | configEnvVars[16].name | string | `"OUT_STEP_SIMULATOR"` |  |
-| configEnvVars[16].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) .Release.Name }}"` |  |
+| configEnvVars[16].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/outputs/out_data_step_simulator\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"` |  |
 | configEnvVars[1].name | string | `"FILE_DENSITIES"` |  |
 | configEnvVars[1].value | string | `"{{ printf \"/home/%s/work/sharedData/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user }}"` |  |
 | configEnvVars[2].name | string | `"IN_DATA_CELLS"` |  |
