@@ -1,6 +1,6 @@
 # uc1-agents-model
 
-![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Agent-based epidemic simulation model designed to study the dynamics of vector-borne diseases in spatially explicit environments.
 
@@ -120,7 +120,7 @@ Agent-based epidemic simulation model designed to study the dynamics of vector-b
 | sharedS3.bucket | string | `"user-235db23a-2ed7-44da-89a1-7427ac0358d7"` |  |
 | sharedS3.defaultRegion | string | `"us-east-1"` |  |
 | sharedS3.enabled | bool | `false` |  |
-| sharedS3.endpoint | string | `"https://minio-console.cloud.eosc-siesta.eu"` |  |
+| sharedS3.endpoint | string | `"https://minio.cloud.eosc-siesta.eu"` |  |
 | sharedS3.mountPath | string | `""` |  |
 | sharedS3.pathStyleAccess | bool | `true` |  |
 | sharedS3.prefix | string | `""` |  |
