@@ -1,0 +1,1 @@
+{{- template "library-chart.notes" (dict "serviceName" "Ubuntu 22 (Wetty)" "context" $) -}}

@@ -1,0 +1,312 @@
+{{- $fullName := include "library-chart.fullname" . -}}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "library-chart.fullname" . }}
+  labels:
+    {{- include "library-chart.labels" . | nindent 4 }}
+spec:
+
+  replicas: {{ .Values.replicaCount }}
+  serviceName: {{ include "library-chart.fullname" . }}
+  selector:
+    matchLabels:
+      {{- include "library-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container: {{ .Chart.Name | quote }}
+        {{- if (.Values.s3).enabled }}
+        checksum/s3: {{ include (print $.Template.BasePath "/secret-s3.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if (.Values.sharedS3).enabled }}
+        checksum/shared-s3: {{ include (print $.Template.BasePath "/secret-shared-s3.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if .Values.configEnvVars }}
+        checksum/configenv: {{ include (print $.Template.BasePath "/secret-configenv.yaml") . | sha256sum }}
+        {{- end }}
+        {{- if (include "library-chart.repository.enabled"  .) }}
+        checksum/repository: {{ include (print $.Template.BasePath "/configmap-repository.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "library-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: home
+        {{- if (.Values.persistence).enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "library-chart.fullname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - name: dshm
+          emptyDir:
+            medium: Memory
+            sizeLimit: 10Gi
+        - name: config-files
+          emptyDir: {}
+        {{- if (.Values.s3).enabled }}
+        - name: s3-mount
+          emptyDir: {}
+        {{- end }}
+        {{- if (.Values.sharedS3).enabled }}
+        - name: shared-s3-mount
+          emptyDir: {}
+        {{- end }}
+        {{- if or (.Values.s3).enabled (.Values.sharedS3).enabled }}
+        - name: dev-fuse
+          hostPath:
+            path: /dev/fuse
+        {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "library-chart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      subdomain: {{ include "library-chart.fullname" . }}
+      hostname: uc1
+      initContainers:
+        - name: make-secrets-writable
+          image: inseefrlab/onyxia-base:latest
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              echo 'initContainer make-secrets-writable is started';
+          volumeMounts:
+            - name: config-files
+              mountPath: /dest
+          resources:
+            limits:
+              cpu: 50m
+              memory: 50Mi
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+      containers:
+        {{- if (.Values.s3).enabled }}
+        - name: s3-mounter
+          image: rclone/rclone:1.66
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add: ["SYS_ADMIN"]
+          envFrom:
+            - secretRef:
+                name: {{ include "library-chart.secretNameS3" . }}
+            {{- if .Values.configEnvVars }}
+            - secretRef:
+                name: {{ printf "%s-secretconfigenv" (include "library-chart.fullname" .) }}
+            {{- end }}
+            {{- if .Values.extraEnvVars }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameExtraEnv" . }}
+            {{- end }}
+          env:
+            # Rclone config por variables de entorno (sin necesidad de fichero)
+            - name: RCLONE_CONFIG_S3_TYPE
+              value: s3
+            - name: RCLONE_CONFIG_S3_PROVIDER
+              value: Other
+            - name: RCLONE_CONFIG_S3_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_ACCESS_KEY_ID
+            - name: RCLONE_CONFIG_S3_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: RCLONE_CONFIG_S3_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_S3_ENDPOINT
+            - name: RCLONE_CONFIG_S3_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_DEFAULT_REGION
+            - name: RCLONE_CONFIG_S3_FORCE_PATH_STYLE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_PATH_STYLE_ACCESS
+
+            {{- if .Values.s3.sessionToken }}
+            - name: RCLONE_CONFIG_S3_SESSION_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "library-chart.secretNameS3" . }}
+                  key: AWS_SESSION_TOKEN
+            {{- end }}
+
+          command: ["/bin/sh","-c"]
+          args:
+            - |
+              set -e
+              echo "Mounting S3..."
+              mkdir -p /mnt/s3
+              # Monta bucket/prefix en /mnt/s3
+              rclone mount s3:{{ .Values.s3.bucket }}{{- if .Values.s3.prefix }}/{{ .Values.s3.prefix }}{{- end }} /mnt/s3/remote \
+                --allow-other \
+                --allow-non-empty \
+                --dir-cache-time 1m \
+                --poll-interval 1m \
+                --vfs-cache-mode writes \
+                --vfs-cache-max-age 1h \
+                --vfs-read-chunk-size 64M \
+                --vfs-read-chunk-size-limit 1G
+          volumeMounts:
+            - name: s3-mount
+              mountPath: /mnt/s3
+              mountPropagation: Bidirectional
+            - name: dev-fuse
+              mountPath: /dev/fuse
+        {{- end }}
+        {{- if (.Values.sharedS3).enabled }}
+        - name: shared-s3-mounter
+          image: rclone/rclone:1.66
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add: ["SYS_ADMIN"]
+          envFrom:
+            - secretRef:
+                name: {{ printf "%s-secret-shared-s3" (include "library-chart.fullname" .) }}
+          env:
+            - name: RCLONE_CONFIG_SHARED_TYPE
+              value: s3
+            - name: RCLONE_CONFIG_SHARED_PROVIDER
+              value: Minio
+            - name: RCLONE_CONFIG_SHARED_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-secret-shared-s3" (include "library-chart.fullname" .) }}
+                  key: SHARED_S3_ACCESS_KEY
+            - name: RCLONE_CONFIG_SHARED_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ printf "%s-secret-shared-s3" (include "library-chart.fullname" .) }}
+                  key: SHARED_S3_SECRET_KEY
+            - name: RCLONE_CONFIG_SHARED_ENDPOINT
+              value: {{ .Values.sharedS3.endpoint | quote }}
+            - name: RCLONE_CONFIG_SHARED_REGION
+              value: {{ .Values.sharedS3.defaultRegion | quote }}
+            - name: RCLONE_CONFIG_SHARED_FORCE_PATH_STYLE
+              value: {{ .Values.sharedS3.pathStyleAccess | quote }}
+          command: ["/bin/sh","-c"]
+          args:
+            - |
+              set -e
+              echo "Mounting shared S3..."
+              mkdir -p /mnt/shared-s3
+              rclone mount shared:{{ .Values.sharedS3.bucket }}{{- if .Values.sharedS3.prefix }}/{{ .Values.sharedS3.prefix }}{{- end }} /mnt/shared-s3/remote \
+                --allow-other \
+                --allow-non-empty \
+                --dir-cache-time 1m \
+                --poll-interval 1m \
+                --vfs-cache-mode writes \
+                --vfs-cache-max-age 1h \
+                --vfs-read-chunk-size 64M \
+                --vfs-read-chunk-size-limit 1G
+          volumeMounts:
+            - name: shared-s3-mount
+              mountPath: /mnt/shared-s3
+              mountPropagation: Bidirectional
+            - name: dev-fuse
+              mountPath: /dev/fuse
+        {{- end }}
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- if .Values.service.image.custom.enabled }}
+          image: "{{ .Values.service.image.custom.version }}"
+          {{- else }}
+          image: "{{ .Values.service.image.version }}"
+          {{- end }}
+          imagePullPolicy: {{ .Values.service.image.pullPolicy }}
+          env:
+            - name: KUBERNETES_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: IMAGE_NAME
+              {{- if .Values.service.image.custom.enabled }}
+              value: "{{ .Values.service.image.custom.version }}"
+              {{- else }}
+              value: "{{ .Values.service.image.version }}"
+              {{- end }}
+            - name: NB_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_USER
+              value: {{ .Values.environment.user }}
+            - name: PROJECT_GROUP
+              value: {{ .Values.environment.group }}
+            - name: ROOT_PROJECT_DIRECTORY
+              value: /home/{{ .Values.environment.user }}/work
+            {{- if .Values.environment.root }}
+            - name: GRANT_SUDO
+              value: "yes"
+            {{- end }}
+            {{- if .Values.userPreferences.darkMode }}
+            - name: DARK_MODE
+              value: "true"
+            {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ include "library-chart.secretNameToken" . }}
+            {{- if (.Values.s3).enabled }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameS3" . }}
+            {{- end }}
+            {{- if .Values.configEnvVars }}
+            - secretRef:
+                name: {{ printf "%s-secretconfigenv" (include "library-chart.fullname" .) }}
+            {{- end }}
+            {{- if .Values.extraEnvVars }}
+            - secretRef:
+                name: {{ include "library-chart.secretNameExtraEnv" . }}
+            {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /home/{{ .Values.environment.user }}/work
+              subPath: work
+              name: home
+            {{- if (.Values.s3).enabled }}
+            - name: s3-mount
+              mountPath: {{ .Values.s3.mountPath | default (printf "/home/%s/work/s3" .Values.environment.user) }}
+              subPath: remote
+              mountPropagation: HostToContainer
+            {{- end }}
+            {{- if (.Values.sharedS3).enabled }}
+            - name: shared-s3-mount
+              mountPath: {{ .Values.sharedS3.mountPath | default (printf "/home/%s/work/sharedData" .Values.environment.user) }}
+              subPath: remote
+              mountPropagation: HostToContainer
+            {{- end }}
+            - mountPath: /dev/shm
+              name: dshm
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
