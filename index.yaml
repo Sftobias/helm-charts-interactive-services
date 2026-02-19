@@ -1390,6 +1390,24 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/ubuntu22-2.3.33/ubuntu22-2.3.33.tgz
     version: 2.3.33
+  uc1-agents:
+  - apiVersion: v2
+    created: "2026-02-19T12:01:40.046481998Z"
+    dependencies:
+    - name: library-chart
+      repository: https://sftobias.github.io/helm-charts-interactive-services
+      version: 1.7.9
+    description: Agent-based epidemic simulation model designed to study the dynamics
+      of vector-borne diseases in spatially explicit environments.
+    digest: d3fd1dafbb913ca656f296b229b64fc6fdfe3dabe84909645b2f59fd257b7b06
+    icon: https://gitlab.ifca.es/eosc-siesta/onyxia/onyxia-values/-/raw/main/assets/images/uc1.png
+    keywords:
+    - Ubuntu
+    name: uc1-agents
+    type: application
+    urls:
+    - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/uc1-agents-1.1.6/uc1-agents-1.1.6.tgz
+    version: 1.1.6
   uc1-agents-model:
   - apiVersion: v2
     created: "2026-02-19T11:43:54.746708092Z"
@@ -1996,4 +2014,4 @@ entries:
     urls:
     - https://github.com/Sftobias/helm-charts-interactive-services/releases/download/xfce-desktop-0.1.0/xfce-desktop-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-19T11:43:54.74705904Z"
+generated: "2026-02-19T12:01:40.046685389Z"
