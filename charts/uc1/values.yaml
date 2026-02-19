@@ -30,7 +30,7 @@ extraEnvVars: []
 # They are mounted in addition to extraEnvVars.
 configEnvVars:
   - name: FILE_MODEL
-    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
+    value: "{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9]{6}$\" .Release.Name) }}"
   - name: FILE_DENSITIES
     value: "{{ printf \"/home/%s/work/sharedData/uc1_data/df_mosquito_weekly_densities.csv\" .environment.user }}"
   - name: IN_DATA_CELLS
