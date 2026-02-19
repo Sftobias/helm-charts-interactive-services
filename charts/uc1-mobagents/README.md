@@ -1,6 +1,6 @@
-# uc1-agents-model
+# uc1-agents
 
-![Version: 1.1.5](https://img.shields.io/badge/Version-1.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.1.6](https://img.shields.io/badge/Version-1.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Agent-based epidemic simulation model designed to study the dynamics of vector-borne diseases in spatially explicit environments.
 
@@ -21,7 +21,7 @@ Agent-based epidemic simulation model designed to study the dynamics of vector-b
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | certificates | object | `{}` |  |
 | configEnvVars[0].name | string | `"FILE_MODEL"` |  |
-| configEnvVars[0].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model_SIESTA_0_13012025.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\" .Release.Name) }}"` |  |
+| configEnvVars[0].value | string | `"{{ printf \"/home/%s/work/s3/%s/job/%s/inputs/model.json\" .environment.user (trimAll \"/\" .s3.workingDirectoryPath) (regexFind \"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\" .Release.Name) }}"` |  |
 | configEnvVars[10].name | string | `"IN_DATA_TT_UNI"` |  |
 | configEnvVars[10].value | string | `"{{ printf \"/home/%s/work/sharedData/uc1_data/tt_universidad.csv\" .environment.user }}"` |  |
 | configEnvVars[11].name | string | `"IN_DATA_POP"` |  |
